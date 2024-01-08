@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://0n1dxhdq81bs"]
+
+[ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/Tree/Tree.png" id="1_bgthd"]
+[ext_resource type="PackedScene" uid="uid://cm320gesbik2e" path="res://Map/Objects/SpawnBoundary.tscn" id="2_ua2er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rr4b"]
+size = Vector2(25.6, 58)
+
+[node name="Tree" type="StaticBody2D"]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bgthd")
+
+[node name="BlockerShape" type="CollisionShape2D" parent="."]
+position = Vector2(-4.76837e-07, 1.6)
+shape = SubResource("RectangleShape2D_5rr4b")
+
+[node name="SpawnBoundary" parent="." instance=ExtResource("2_ua2er")]

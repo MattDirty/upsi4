@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqwomwcwnjyrr"]
+
+[ext_resource type="SpriteFrames" uid="uid://tou3q510o7gi" path="res://Characters/Player/Frames/Knight.tres" id="1_m3jou"]
+[ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
+[ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_2fedm"]
+[ext_resource type="Script" path="res://Characters/Player/Attack.gd" id="4_nkwap"]
+[ext_resource type="Theme" uid="uid://bb5e7ts486nsv" path="res://Characters/Player/Player.tres" id="5_8u6uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
+size = Vector2(8, 16)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 42
+script = ExtResource("1_mdy0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+shape = SubResource("RectangleShape2D_au0si")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.775, 2.775)
+
+[node name="CharacterAnimator" parent="." instance=ExtResource("2_2fedm")]
+sprite_frames = ExtResource("1_m3jou")
+animation = &"IdleSouth"
+
+[node name="CooldownBar" type="ProgressBar" parent="."]
+offset_left = -8.0
+offset_top = 11.0
+offset_right = 8.0
+offset_bottom = 15.0
+theme = ExtResource("5_8u6uf")
+show_percentage = false
+
+[node name="Attack" type="Node2D" parent="."]
+script = ExtResource("4_nkwap")
+
+[node name="Area2D" type="Area2D" parent="Attack"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack/Area2D"]
+polygon = PackedVector2Array(0, -8, 24, -21, 24, 22, 0, 8)
+
+[connection signal="area_entered" from="Attack/Area2D" to="Attack" method="_on_area_2d_area_entered"]

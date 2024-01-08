@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglgd13076bip"]
+
+[ext_resource type="Script" path="res://Characters/CharacterAnimator.gd" id="1_d33gg"]
+
+[node name="CharacterAnimator" type="AnimatedSprite2D"]
+editor_description = "The SpriteFrames used for a character.
+They have to contain \"Idle\", \"Move\" and \"Attack\" as Actions
+For each Action they have to contain the 8 directions
+Naming should be as follow: [\"Action\"][\"North\"|\"South\"|\"\"][\"East\"|\"West\"|\"\"]
+Example: MoveSouthWest"
+script = ExtResource("1_d33gg")

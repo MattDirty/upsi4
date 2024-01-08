@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwomwcwnjyrr"]
+
+[ext_resource type="SpriteFrames" uid="uid://tou3q510o7gi" path="res://Player/Frames/Knight.tres" id="1_m3jou"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_mdy0c"]
+[ext_resource type="Script" path="res://Player/Scripts/Animation.gd" id="3_ankl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
+size = Vector2(11.0274, 20)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(518, 294)
+scale = Vector2(3.718, 3.718)
+script = ExtResource("1_mdy0c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_m3jou")
+animation = &"MoveSouth"
+script = ExtResource("3_ankl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.403442, 0)
+shape = SubResource("RectangleShape2D_au0si")

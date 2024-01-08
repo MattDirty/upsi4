@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm320gesbik2e"]
+
+[ext_resource type="Script" path="res://Map/Objects/SpawnBoundary.gd" id="1_0bgmr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ice8"]
+radius = 40.0
+
+[node name="SpawnBoundary" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0bgmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0ice8")
