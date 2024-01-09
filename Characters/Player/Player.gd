@@ -7,6 +7,8 @@ extends CharacterBody2D
 var direction = "South"
 var action = "Idle"
 
+const DIRECTIONS = ["East", "SouthEast", "South", "SouthWest", "West", "NorthWest", "North", "NorthEast"]
+const DIRECTIONS_SUBDIVION = 6.10865 / 8 # DIRECTIONS.length
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -37,16 +39,8 @@ func _process(_delta):
 
 
 func setDirectionInRelationToMouse():
-	var mouse = get_viewport().get_mouse_position()
-	var last_direction = direction
-	direction = ""
-	if mouse.y < viewport_size.y / 3:
-		direction = "North"
-	elif mouse.y > viewport_size.y / 3 * 2:
-		direction = "South"
-	if mouse.x < viewport_size.x / 3:
-		direction += "West"
-	elif mouse.x > viewport_size.x / 3 * 2:
-		direction += "East"
-	if direction == "":
-		direction = last_direction
+	var mouse = get_local_mouse_position().normalized()
+	var angle = mouse.angle() + DIRECTIONS_SUBDIVION / 2
+	if angle < 0:
+		angle += 6.10865
+	direction = DIRECTIONS[angle / DIRECTIONS_SUBDIVION]

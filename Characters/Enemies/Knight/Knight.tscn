@@ -29,7 +29,7 @@ shader = SubResource("Shader_r6if4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
 size = Vector2(4, 5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4288"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijjsl"]
 resource_local_to_scene = true
 shader = ExtResource("1_ttxow")
 
@@ -46,7 +46,7 @@ script = ExtResource("1_tfgev")
 shape = SubResource("RectangleShape2D_6drgq")
 
 [node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
-material = SubResource("ShaderMaterial_r4288")
+material = SubResource("ShaderMaterial_ijjsl")
 sprite_frames = ExtResource("2_cqewl")
 animation = &"IdleSouth"
 
