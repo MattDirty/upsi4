@@ -8,7 +8,8 @@ var direction = "South"
 var action = "Idle"
 
 const DIRECTIONS = ["East", "SouthEast", "South", "SouthWest", "West", "NorthWest", "North", "NorthEast"]
-const DIRECTIONS_SUBDIVION = 6.10865 / 8 # DIRECTIONS.length
+const RAD_360 = deg_to_rad(360)
+const DIRECTIONS_SUBDIVION = RAD_360 / 8 # DIRECTIONS.length
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -42,5 +43,5 @@ func setDirectionInRelationToMouse():
 	var mouse = get_local_mouse_position().normalized()
 	var angle = mouse.angle() + DIRECTIONS_SUBDIVION / 2
 	if angle < 0:
-		angle += 6.10865
+		angle += RAD_360
 	direction = DIRECTIONS[angle / DIRECTIONS_SUBDIVION]
