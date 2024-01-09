@@ -3,7 +3,6 @@ class_name Enemy extends CharacterBody2D
 var health: int = 10
 var max_health: int = 10
 var speed: int = 1
-var directions = ["South", "SouthEast", "East", "NorthEast", "North", "NorthWest", "West", "SouthWest"]
 @onready var Animator = $"CharacterAnimator"
 @onready var HealthBar: ProgressBar = $"HealthBar"
 
@@ -17,7 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var direction = directions[rad_to_deg(velocity.angle_to(Vector2.DOWN)) / 45]
+	var direction = Orientation.get_direction_from_angle(velocity.angle())
 	var action = "Idle"
 	if velocity.length() > 0:
 		action = "Move"
