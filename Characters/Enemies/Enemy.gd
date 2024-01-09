@@ -3,6 +3,7 @@ class_name Enemy extends CharacterBody2D
 var health: int = 10
 var max_health: int = 10
 var speed: int = 1
+var damages: int = 1
 @onready var Animator = $"CharacterAnimator"
 @onready var HealthBar: ProgressBar = $"HealthBar"
 
@@ -23,8 +24,8 @@ func _process(_delta):
 	Animator.changeAnimation(action, direction)
 
 
-func take_damages(damages: int):
-	health -= damages
+func take_damages(damagesTaken: int):
+	health -= damagesTaken
 	HealthBar.value = health
 	HealthBar.visible = true
 	if health <= 0:

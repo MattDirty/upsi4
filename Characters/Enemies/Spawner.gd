@@ -12,7 +12,7 @@ var time_since_last_spawn: float = 0
 var total_spawned: int
 var container: Node
 
-@onready var Player := $"%Player"
+@onready var PlayerInstance := $"%Player"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,5 +40,5 @@ func spawnCharacter():
 		var spawn_position = Vector2(randf_range(min_distance, max_distance), 0).rotated(randf() * 2.0 * PI)
 		var new_character = character.instantiate()
 		new_character.name = container_name + "_unit" + str(total_spawned)
-		new_character.position = spawn_position + Player.position
+		new_character.position = spawn_position + PlayerInstance.position
 		container.add_child(new_character)

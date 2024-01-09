@@ -1,3 +1,4 @@
+
 class_name Orientation
 
 const DIRECTIONS = ["East", "SouthEast", "South", "SouthWest", "West", "NorthWest", "North", "NorthEast"]

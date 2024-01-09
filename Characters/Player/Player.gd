@@ -1,9 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var Animator = $CharacterAnimator
-@onready var viewport_size = get_viewport().get_visible_rect().size
 @onready var Attack = $Attack
 @export var speed = 400
+@export var health := 100
 var direction = "South"
 var action = "Idle"
 
@@ -18,15 +19,11 @@ func get_input():
 		action = "Idle"
 	else:
 		action = "Move"
-
-
-func viewport_resize():
-	viewport_size = get_viewport().get_visible_rect().size
-
+		
 
 func _ready():
 	Animator.changeAnimation(action, direction)
-	get_tree().get_root().size_changed.connect(viewport_resize)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

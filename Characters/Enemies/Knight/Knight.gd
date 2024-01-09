@@ -22,3 +22,9 @@ func _process(delta):
 		delta_since_last_move = 0
 	move_and_slide()
 	super(delta)
+
+
+func _on_hurtbox_body_entered(body):
+	if not body is Player:
+		return
+	

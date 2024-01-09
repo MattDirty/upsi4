@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b71d0wsey6gub"]
+[gd_scene load_steps=12 format=3 uid="uid://b71d0wsey6gub"]
 
 [ext_resource type="Script" path="res://Characters/Enemies/Knight/Knight.gd" id="1_tfgev"]
 [ext_resource type="Shader" path="res://Characters/Enemies/Knight/Knight.gdshader" id="1_ttxow"]
@@ -36,11 +36,22 @@ shader = ExtResource("1_ttxow")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3i1"]
 size = Vector2(12, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i42y"]
+size = Vector2(6, 14)
+
 [node name="Knight" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_e40q8")
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tfgev")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = -12.0
+theme = ExtResource("5_4uks6")
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6drgq")
@@ -50,17 +61,17 @@ material = SubResource("ShaderMaterial_ijjsl")
 sprite_frames = ExtResource("2_cqewl")
 animation = &"IdleSouth"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_gk3i1")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -6.0
-offset_top = -16.0
-offset_right = 6.0
-offset_bottom = -12.0
-theme = ExtResource("5_4uks6")
-show_percentage = false
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_5i42y")
+debug_color = Color(1, 0.611765, 0, 0.419608)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
