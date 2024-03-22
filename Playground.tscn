@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba45d85vm2ptv"]
+[gd_scene load_steps=6 format=3 uid="uid://ba45d85vm2ptv"]
 
 [ext_resource type="PackedScene" uid="uid://kyeaogpfclel" path="res://Map/Map.tscn" id="1_61lmh"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
 [ext_resource type="Script" path="res://Characters/Enemies/Spawner.gd" id="3_p5by6"]
 [ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Knight/Knight.tscn" id="4_8c3qm"]
+[ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 
 [node name="Playground" type="Node2D"]
 
@@ -18,6 +19,7 @@ script = ExtResource("3_p5by6")
 character = ExtResource("4_8c3qm")
 spawn_rate = 0.1
 min_distance = 100.0
-max_distance = 100.0
-max_units = 1000
+max_distance = 300.0
 container_name = "Knights"
+
+[node name="SafeZone" parent="." instance=ExtResource("5_mjhiq")]

@@ -7,6 +7,8 @@ class_name Player
 @export var health := 100
 var direction = "South"
 var action = "Idle"
+var can_interact := false
+var interact_target
 
 
 func get_input():
@@ -20,6 +22,8 @@ func get_input():
 	else:
 		action = "Move"
 
+	if Input.is_action_pressed("interact") and can_interact:
+		print_debug("interacting with ", interact_target)
 
 func _ready():
 	Animator.changeAnimation(action, direction)
@@ -35,3 +39,11 @@ func _process(_delta):
 
 func setDirectionInRelationToMouse():
 	direction = Orientation.get_direction_from_angle(get_local_mouse_position().angle())
+
+
+func toggleInteract(target):
+	can_interact = !can_interact
+	if can_interact:
+		interact_target = target
+	else:
+		interact_target = null
