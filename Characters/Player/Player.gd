@@ -19,7 +19,7 @@ func get_input():
 		action = "Idle"
 	else:
 		action = "Move"
-		
+
 
 func _ready():
 	Animator.changeAnimation(action, direction)
