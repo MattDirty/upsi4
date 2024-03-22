@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0n1dxhdq81bs"]
 
-[ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/Tree/Tree.png" id="1_bgthd"]
+[ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/SafeZone/SafeZone.png" id="1_bgthd"]
 [ext_resource type="PackedScene" uid="uid://cm320gesbik2e" path="res://Map/Objects/SpawnBoundary.tscn" id="2_ua2er"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rr4b"]
