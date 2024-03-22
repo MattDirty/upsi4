@@ -1,9 +1,9 @@
 
 class_name Orientation
 
-const DIRECTIONS = ["East", "SouthEast", "South", "SouthWest", "West", "NorthWest", "North", "NorthEast"]
+const DIRECTIONS = ["East", "South", "West", "North"]
 const RAD_360 = deg_to_rad(360)
-const DIRECTIONS_SUBDIVION = RAD_360 / 8 # DIRECTIONS.length
+const DIRECTIONS_SUBDIVION = RAD_360 / 4 # DIRECTIONS.length
 
 ## Finds the direction ("East"|"NorthWest"|..) from an angle in radiants
 static func get_direction_from_angle(rad_angle: float):
