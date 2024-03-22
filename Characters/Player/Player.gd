@@ -5,36 +5,46 @@ class_name Player
 @onready var Attack = $Attack
 @export var speed = 400
 @export var health := 100
+@export var interact_interval := 0.5
 var direction = "South"
 var action = "Idle"
 var can_interact := false
-var interact_target
+var interact_target: Node2D
+var time_since_interact := 1000.0
 
 
 func get_input():
+	if Input.is_action_pressed("interact") and can_interact:
+		action = "Interact"
+		return
+	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
+
 	if Input.is_action_pressed("main_attack") and Attack.status != "Cooldown":
 		action = "Attack"
 		Attack.attack()
-	elif velocity == Vector2.ZERO:
+	elif velocity == Vector2.ZERO and action != "Interact":
 		action = "Idle"
 	else:
 		action = "Move"
-
-	if Input.is_action_pressed("interact") and can_interact:
-		print_debug("interacting with ", interact_target)
 
 func _ready():
 	Animator.changeAnimation(action, direction)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
+	if action == "Interact":
+		if time_since_interact >= interact_interval:
+			interact_target.playerInteract()
+			time_since_interact = 0
 	setDirectionInRelationToMouse()
 	get_input()
 	Animator.changeAnimation(action, direction)
 	move_and_slide()
+	time_since_interact += delta
+
 
 
 func setDirectionInRelationToMouse():
