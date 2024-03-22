@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfn1ackm4oim5"
-path="res://.godot/imported/Tree.png-b23d86b37904953dc26f0330b4acc921.ctex"
+uid="uid://duva73kr0qsw3"
+path="res://.godot/imported/damage.png-4ad17744f44356d8befb1086933a6f18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Objects/Tree/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-b23d86b37904953dc26f0330b4acc921.ctex"]
+source_file="res://Asset/Base Character - Free/damage.png"
+dest_files=["res://.godot/imported/damage.png-4ad17744f44356d8befb1086933a6f18.ctex"]
 
 [params]
 
