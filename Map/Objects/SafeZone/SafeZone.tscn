@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/SafeZone/SafeZone.png" id="1_7sb3l"]
 [ext_resource type="Script" path="res://Map/Objects/SafeZone/SafeZone.gd" id="1_fbttr"]
-[ext_resource type="Texture2D" uid="uid://b41k6s6if6sn3" path="res://Map/Objects/SafeZone/2d_lights_and_shadows_neutral_point_light.webp" id="3_83n41"]
+[ext_resource type="Texture2D" uid="uid://dfsif0vby4exp" path="res://Map/Objects/SafeZone/light.svg" id="3_hqytd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clcvn"]
 radius = 42.5793
@@ -28,8 +28,9 @@ shape = SubResource("CircleShape2D_wvbdm")
 debug_color = Color(0.635294, 0.741176, 0.00392157, 0.419608)
 
 [node name="PointLight2D" type="PointLight2D" parent="SafeArea"]
-texture = ExtResource("3_83n41")
-texture_scale = 3.0
+scale = Vector2(0.755, 0.755)
+blend_mode = 2
+texture = ExtResource("3_hqytd")
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]

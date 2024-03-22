@@ -27,3 +27,6 @@ container_name = "Knights"
 stream = ExtResource("5_voe6j")
 autoplay = true
 [node name="SafeZone" parent="." instance=ExtResource("5_mjhiq")]
+
+[node name="SafeZone2" parent="." instance=ExtResource("5_mjhiq")]
+position = Vector2(471, 0)
