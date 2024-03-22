@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var Animator = $CharacterAnimator
 @onready var Attack = $Attack
 @export var speed = 400
 @export var health := 100
@@ -20,7 +19,8 @@ func get_input():
 	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
-
+	if input_direction:
+		direction = Orientation.get_direction_from_angle(input_direction.angle())
 	if Input.is_action_pressed("main_attack") and Attack.status != "Cooldown":
 		action = "Attack"
 		Attack.attack()
@@ -30,7 +30,7 @@ func get_input():
 		action = "Move"
 
 func _ready():
-	Animator.changeAnimation(action, direction)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,9 +39,8 @@ func _process(delta):
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
 			time_since_interact = 0
-	setDirectionInRelationToMouse()
 	get_input()
-	Animator.changeAnimation(action, direction)
+	%Body.setAnimation(action, direction)
 	move_and_slide()
 	time_since_interact += delta
 
