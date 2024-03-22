@@ -10,7 +10,7 @@ func changeAnimation(action: String, direction: String):
 	var current_animation = self.get_animation()
 	var current_frame: int = 0
 	var current_progress: float = 0.0
-	if action == "Interact":
+	if action == "Interact": #TODO: Remove this once we have an interact anim
 		action = "Attack"
 	if action != "Attack" or "Attack" in current_animation:
 		current_frame = self.get_frame()
