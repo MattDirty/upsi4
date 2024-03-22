@@ -2,7 +2,8 @@ extends Node2D
 
 @export var max_size := 1.0
 @export var step_size := 0.1
-var current_size := 0.0
+@export var initial_size := 0.5
+@onready var current_size := initial_size
 @onready var safeArea = $SafeArea
 
 # Called when the node enters the scene tree for the first time.
