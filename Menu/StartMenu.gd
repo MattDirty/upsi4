@@ -15,12 +15,23 @@ func _on_start_btn_pressed():
 
 
 func _on_help_btn_pressed():
-	pass # Replace with function body.
-
+	$HelpUI.visible = true
+	$HelpUI/HelpBackBtn.grab_focus()
 
 func _on_credits_btn_pressed():
-	pass # Replace with function body.
+	$CreditsUI.visible = true
+	$CreditsUI/CreditsBackBtn.grab_focus()
 
 
 func _on_quit_btn_pressed():
 	get_tree().quit()
+
+
+func _on_help_back_btn_pressed():
+	$HelpUI.visible = false
+	$VBoxContainer/StartBtn.grab_focus()
+	
+
+func _on_credits_back_btn_pressed():
+	$CreditsUI.visible = false
+	$VBoxContainer/StartBtn.grab_focus()
