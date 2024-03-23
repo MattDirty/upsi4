@@ -1,14 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://be5af5p5i8d1q"]
+[gd_scene load_steps=7 format=3 uid="uid://be5af5p5i8d1q"]
 
 [ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/SafeZone/SafeZone.png" id="1_7sb3l"]
 [ext_resource type="Script" path="res://Map/Objects/SafeZone/SafeZone.gd" id="1_fbttr"]
-[ext_resource type="Texture2D" uid="uid://b41k6s6if6sn3" path="res://Map/Objects/SafeZone/2d_lights_and_shadows_neutral_point_light.webp" id="3_83n41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clcvn"]
 radius = 42.5793
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvbdm"]
 radius = 300.0
+
+[sub_resource type="Gradient" id="Gradient_2v51e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.30916, 0.683206, 0.927481, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.976438, 1, 1, 1, 0.822248, 1, 1, 1, 0.619945, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l54vr"]
+gradient = SubResource("Gradient_2v51e")
+width = 275
+height = 275
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.692308, 0.0299145)
 
 [node name="SafeZone" type="Node2D"]
 script = ExtResource("1_fbttr")
@@ -28,8 +40,10 @@ shape = SubResource("CircleShape2D_wvbdm")
 debug_color = Color(0.635294, 0.741176, 0.00392157, 0.419608)
 
 [node name="PointLight2D" type="PointLight2D" parent="SafeArea"]
-texture = ExtResource("3_83n41")
-texture_scale = 3.0
+scale = Vector2(0.755, 0.755)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_l54vr")
+texture_scale = 2.89
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]
