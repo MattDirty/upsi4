@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Crack Cocaine"
+config/name="Tammy's night"
 run/main_scene="res://Menu/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
