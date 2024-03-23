@@ -3,13 +3,17 @@ class_name Player
 
 @onready var Attack = $Attack
 @export var speed = 400
-@export var health := 100
+@export var max_health := 100
+@onready var health := max_health
 @export var interact_interval := 0.5
+@export var outside_damage_interval := 0.5
+var time_since_outside_damage := 1000.0
 var direction = "South"
 var action = "Idle"
 var can_interact := false
 var interact_target: Node2D
 var time_since_interact := 1000.0
+var safe_areas := []
 
 
 func get_input():
@@ -38,12 +42,17 @@ func _process(delta):
 	if action == "Interact":
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
-			time_since_interact = 0
+			time_since_interact -= interact_interval
 	get_input()
 	%Body.setAnimation(action, direction)
 	move_and_slide()
-	time_since_interact += delta
+	
+	if time_since_outside_damage >= outside_damage_interval and safe_areas.size() <= 0:
+		health -= 1
+		time_since_outside_damage -= outside_damage_interval
 
+	time_since_interact += delta
+	time_since_outside_damage += delta
 
 
 func setDirectionInRelationToMouse():
@@ -56,3 +65,13 @@ func toggleInteract(target):
 		interact_target = target
 	else:
 		interact_target = null
+		
+		
+func addSafeArea(safe_area):
+	safe_areas.append(safe_area)
+	print_debug(safe_areas)
+	
+	
+func removeSafeArea(safe_area):
+	safe_areas.remove_at(safe_areas.find(safe_area))
+	print_debug(safe_areas)
