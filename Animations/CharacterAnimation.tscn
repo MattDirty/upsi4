@@ -565,11 +565,15 @@ unique_name_in_owner = true
 [node name="AttackText" type="Label" parent="Mouth"]
 visible = false
 light_mask = 32
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 46.0
+offset_bottom = 28.0
 scale = Vector2(0.01, 0.01)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 16
 text = "Piew"
 
 [node name="SleepText" type="Label" parent="Mouth"]
@@ -577,12 +581,15 @@ visible = false
 light_mask = 32
 offset_left = 6.0
 offset_top = -8.0
-offset_right = 46.0
-offset_bottom = 15.0
+offset_right = 48.0
+offset_bottom = 31.0
 scale = Vector2(0.01, 0.01)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 28
 text = "zzZ"
 
 [node name="Hands" type="Node2D" parent="."]

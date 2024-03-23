@@ -59,7 +59,6 @@ _data = {
 script = ExtResource("1_fbttr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 100
 material = SubResource("ShaderMaterial_ykncg")
 texture = ExtResource("2_1c3yc")
 script = SubResource("GDScript_w3udn")
