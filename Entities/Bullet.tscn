@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://tc8pqy80goku"]
+
+[ext_resource type="Texture2D" uid="uid://c64nsf3hsi78b" path="res://Animations/Animations/hand.png" id="1_eiiv6"]
+[ext_resource type="Script" path="res://Entities/Bullet.gd" id="2_jm178"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5215i"]
+atlas = ExtResource("1_eiiv6")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hv3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5215i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l24dp"]
+radius = 2.0
+
+[node name="Bullet" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1hv3h")
+script = ExtResource("2_jm178")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l24dp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

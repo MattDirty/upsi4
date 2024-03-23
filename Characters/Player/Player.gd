@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+var Bullet = load("res://Entities/Bullet.tscn")
+
 @onready var Attack = $Attack
 @export var speed = 400
 @export var max_health := 20
@@ -41,7 +43,7 @@ func get_input():
 func _ready():
 	%Body.startInteract.connect(func(): self.is_interacting = true)
 	%Body.stopInteract.connect(func(): self.is_interacting = false)
-	%Body.fire.connect(func(): Attack.attack())
+	%Body.fire.connect(attack)
 	pass
 
 
@@ -99,3 +101,12 @@ func addSafeArea(safe_area):
 func removeSafeArea(safe_area):
 	safe_areas.remove_at(safe_areas.find(safe_area))
 	print_debug(safe_areas)
+
+func attack(position: Vector2):
+	var target = get_global_mouse_position()
+	print(position, target)
+	var bullet = Bullet.instantiate()
+	bullet.position = position
+	bullet.layer = 2
+	bullet.direction = position.direction_to(target)
+	get_node("/root").add_child(bullet)
