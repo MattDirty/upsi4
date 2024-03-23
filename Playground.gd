@@ -2,6 +2,16 @@ extends Node2D
 
 
 var paused = false
+var currentHour = 0
+
+
+func _ready():
+	$HourTimer.start()
+
+
+func _on_hour_timer_timeout():
+	addOneHour()
+	$HourTimer.start()
 
 
 func _input(event):
@@ -22,12 +32,22 @@ func pauseMenu():
 		Engine.time_scale = 0
 		
 	paused = !paused
-	
+
 
 func restartLevel():
 	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://Playground.tscn")
-	
+
 
 func backToMainMenu():
 	get_tree().change_scene_to_file("res://Menu/StartMenu.tscn")
+
+
+func addOneHour():
+	currentHour += 1
+	$ClockBell.play()
+	
+	if (currentHour == 8):
+		await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://Menu/VictoryScreen.tscn")
+

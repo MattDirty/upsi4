@@ -148,7 +148,8 @@ grow_vertical = 2
 theme = ExtResource("2_ro0w0")
 text = "Made with <3 by Louise, Matthieu & Mattia during the Upsi Jam 4.0
 
-Credits to Deep-Fold, GGBotNet, Magma Interactive for some of the assets!"
+Credits to Deep-Fold, GGBotNet, Magma Interactive,
+Free Game Assets (GUI, Sprite, Tilesets) for some of the assets!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://u25qvudy06kt"]
+
+[ext_resource type="Script" path="res://Menu/GameOverScreen.gd" id="1_tar4h"]
+[ext_resource type="Texture2D" uid="uid://65bplrwn8fib" path="res://Assets/Textures/DreamGameOver.png" id="2_mp0wa"]
+[ext_resource type="Theme" uid="uid://bgntc2jm0thko" path="res://Assets/Theme.tres" id="3_kdb6o"]
+[ext_resource type="AudioStream" uid="uid://bnwxbr0xb5wom" path="res://Assets/Sounds/SFX/Deep Hits.wav" id="4_5x2b0"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tar4h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mp0wa")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_kdb6o")
+text = "Oh no! Tammy was so afraid that they peed in their sleep :((("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -153.0
+offset_right = 158.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_kdb6o")
+theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
+text = "Restart the night"
+
+[node name="BackToMainMenuBtn" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -80.0
+offset_right = 158.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_kdb6o")
+theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
+text = "Back to main menu
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureRect"]
+stream = ExtResource("4_5x2b0")
+autoplay = true
+
+[connection signal="pressed" from="TextureRect/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="TextureRect/BackToMainMenuBtn" to="." method="_on_back_to_main_menu_btn_pressed"]
