@@ -522,7 +522,7 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_2v51e"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.0152672, 0.901554, 0.958549, 1)
+offsets = PackedFloat32Array(0.0152672, 0.839695, 0.965649, 1)
 colors = PackedColorArray(1, 1, 1, 0.905882, 1, 1, 1, 0.888764, 1, 1, 1, 0.486275, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ui1ny"]

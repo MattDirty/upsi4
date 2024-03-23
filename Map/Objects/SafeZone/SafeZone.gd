@@ -7,14 +7,21 @@ extends Node2D
 @onready var current_size := initial_size
 @onready var safeArea = $SafeArea
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	setScaleFromCurrentSize()
+	safeArea.scale = Vector2(current_size, current_size)
 
 
 func setScaleFromCurrentSize():
-	safeArea.scale = Vector2(current_size, current_size)
-	
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		safeArea,
+		"scale",
+		Vector2(current_size, current_size),
+		1.0
+	)
+
 func _on_interact_body_entered(body):
 	body.toggleInteract(self)
 
