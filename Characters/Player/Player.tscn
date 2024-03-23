@@ -19,8 +19,10 @@ shape = SubResource("RectangleShape2D_au0si")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.775, 2.775)
 
+
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
+
 
 [node name="CooldownBar" type="ProgressBar" parent="."]
 offset_left = -8.0

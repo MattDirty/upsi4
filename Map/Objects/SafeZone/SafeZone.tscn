@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/SafeZone/SafeZone.png" id="1_7sb3l"]
 [ext_resource type="Script" path="res://Map/Objects/SafeZone/SafeZone.gd" id="1_fbttr"]
-[ext_resource type="Texture2D" uid="uid://dfsif0vby4exp" path="res://Map/Objects/SafeZone/light.svg" id="3_hqytd"]
+[ext_resource type="Texture2D" uid="uid://nt7tfs3gmtjc" path="res://Map/Objects/SafeZone/light.svg" id="3_hqytd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clcvn"]
 radius = 42.5793

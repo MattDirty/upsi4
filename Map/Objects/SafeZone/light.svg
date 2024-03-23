@@ -1,7 +1,11 @@
 <svg width="799.9999999999999" height="799.9999999999999" xmlns="http://www.w3.org/2000/svg">
-
+ <defs>
+  <filter height="200%" width="200%" y="-50%" x="-50%" id="svg_1_blur">
+   <feGaussianBlur stdDeviation="10" in="SourceGraphic"/>
+  </filter>
+ </defs>
  <g>
   <title>Layer 1</title>
-  <ellipse stroke-width="0" ry="395" rx="395" id="svg_1" cy="400" cx="400" stroke="#ffff00" fill="#ffffff"/>
+  <ellipse filter="url(#svg_1_blur)" stroke-width="0" ry="380" rx="380" id="svg_1" cy="400" cx="400" stroke="#ffff00" fill="#ffffff"/>
  </g>
 </svg>
