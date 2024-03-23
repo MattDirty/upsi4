@@ -3,7 +3,7 @@ class_name Player
 
 @onready var Attack = $Attack
 @export var speed = 400
-@export var max_health := 100
+@export var max_health := 20
 @onready var health := max_health
 @export var interact_interval := 0.5
 @export var outside_damage_interval := 0.5
@@ -15,6 +15,7 @@ var is_interacting := false
 var interact_target: Node2D
 var time_since_interact := 0.0
 var safe_areas := []
+var is_dead := false
 
 func _input(event):
 	if event.is_action_pressed("take_damage"):
@@ -46,6 +47,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if is_dead:
+		return
 	if is_interacting:
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
@@ -66,13 +69,14 @@ func _process(delta):
 
 func takeDamage(value: int):
 	health -= value
+	print(health)
 	%Body.setAnimation("Damage", direction)
 	if health <= 0:
 		death()
 
 func death():
 	%Body.setAnimation("Death", direction)
-	pass
+
 
 func setDirectionInRelationToMouse():
 	direction = Orientation.get_direction_from_angle(get_local_mouse_position().angle())

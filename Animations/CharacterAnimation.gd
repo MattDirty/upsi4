@@ -20,11 +20,10 @@ func setAnimation(action, direction):
 	elif self.action == "Interact":
 		%AnimationPlayerLabel.stop()
 		stopInteract.emit()
-	if "Death" in self.action and "Death" == action:
+	if "Death" in self.action:
 		return
 	if action + direction == self.action and action != "Damage":
 		return
-	print(action + direction)
 
 	if "Damage" in self.action and action != "Damage" and action != "Death" and action != "Interact" and self.is_playing():
 		return
@@ -41,9 +40,6 @@ func setAnimation(action, direction):
 		damageAnimation()
 		self.stop()
 		self.frame = 0
-
-	if "Death" in self.action:
-		return
 
 	if self.sprite_frames.has_animation(action + direction):
 		self.play(action + direction)
@@ -64,3 +60,8 @@ func fireAnimation():
 	%Mouth.rotation = randf_range(-PI / 3, PI / 3)
 	%AnimationPlayerLabel.play("Attack")
 	fire.emit(%FireEmiter.global_position)
+
+func deathAnimation():
+	%Hands.visible = false
+	get_tree().change_scene_to_file("res://Menu/GameOverScreen.tscn")
+	pass

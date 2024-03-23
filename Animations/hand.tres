@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ceohj07uitcok"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ceohj07uitcok"]
 
 [ext_resource type="Texture2D" uid="uid://c64nsf3hsi78b" path="res://Animations/Animations/hand.png" id="1_4pvrn"]
 
@@ -7,6 +7,10 @@ atlas = ExtResource("1_4pvrn")
 region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3blph"]
+atlas = ExtResource("1_4pvrn")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wkrr"]
 atlas = ExtResource("1_4pvrn")
 region = Rect2(0, 0, 8, 8)
 
@@ -26,6 +30,14 @@ animations = [{
 "loop": true,
 "name": &"Attack",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wkrr")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

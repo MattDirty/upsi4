@@ -5,9 +5,11 @@ extends Node2D
 var action = "Idle"
 
 func _physics_process(_delta_time):
-	if action == "Interact":
+	if action == "Interact" or action == "Death":
 		rotation = 0
 		position = Vector2.ZERO
+		%Hand1.rotation = 0
+		%Hand2.rotation = 0
 		return
 	position = get_target_normalized() * distance
 	look_at(get_parent().global_position)
@@ -24,3 +26,4 @@ func setAnimation(action):
 	self.action = action
 	if action == "Attack":
 		%Hand2.frame = 1
+

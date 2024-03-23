@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=22 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Shader" path="res://Shaders/Etheral.gdshader" id="1_yvud6"]
@@ -334,9 +334,13 @@ tracks/5/keys = {
 "values": [1.0, 2.0, 1.0, 2.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_7o5yo"]
+resource_name = "Death"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrho3"]
 _data = {
 "Attack": SubResource("Animation_0bbw0"),
+"Death": SubResource("Animation_7o5yo"),
 "Idle": SubResource("Animation_pml8y"),
 "Interact": SubResource("Animation_wvwlf"),
 "RESET": SubResource("Animation_fudi0")
@@ -798,7 +802,7 @@ unique_name_in_owner = true
 position = Vector2(-3, 5)
 scale = Vector2(1, -1)
 sprite_frames = ExtResource("3_wxt5j")
-animation = &"Idle"
+animation = &"Death"
 
 [node name="Hand2" type="AnimatedSprite2D" parent="Hands"]
 unique_name_in_owner = true
