@@ -11,10 +11,6 @@ func _ready():
 	setScaleFromCurrentSize()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 func setScaleFromCurrentSize():
 	safeArea.scale = Vector2(current_size, current_size)
 
@@ -32,3 +28,11 @@ func playerInteract():
 	if current_size >= max_size:
 		current_size = max_size
 	setScaleFromCurrentSize()
+
+
+func _on_safe_area_body_entered(body):
+	body.addSafeArea(self)
+
+
+func _on_safe_area_body_exited(body):
+	body.removeSafeArea(self)

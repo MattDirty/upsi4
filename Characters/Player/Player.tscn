@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
-[ext_resource type="PackedScene" uid="uid://dk8lf3fekj5g7" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
+[ext_resource type="PackedScene" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
 [ext_resource type="Script" path="res://Characters/Player/Attack.gd" id="4_nkwap"]
 [ext_resource type="Theme" uid="uid://bb5e7ts486nsv" path="res://Characters/Player/Player.tres" id="5_8u6uf"]
 
@@ -19,10 +19,8 @@ shape = SubResource("RectangleShape2D_au0si")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.775, 2.775)
 
-
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
-
 
 [node name="CooldownBar" type="ProgressBar" parent="."]
 offset_left = -8.0
