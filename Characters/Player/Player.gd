@@ -11,6 +11,7 @@ var time_since_outside_damage := 0.0
 var direction = "South"
 var action = "Idle"
 var can_interact := false
+var is_interacting := false
 var interact_target: Node2D
 var time_since_interact := 0.0
 var safe_areas := []
@@ -25,25 +26,30 @@ func get_input():
 	velocity = input_direction * speed
 	if input_direction:
 		direction = Orientation.get_direction_from_angle(input_direction.angle())
-	if Input.is_action_pressed("main_attack") and Attack.status != "Cooldown":
+	if Input.is_action_pressed("main_attack"): # and Attack.status != "Cooldown":
 		action = "Attack"
-		Attack.attack()
+		#Attack.attack()
 	elif velocity == Vector2.ZERO and action != "Interact":
 		action = "Idle"
 	else:
 		action = "Move"
 
 func _ready():
+	%Body.startInteract.connect(func(): self.is_interacting = true)
+	%Body.stopInteract.connect(func(): self.is_interacting = false)
+	%Body.fire.connect(func(): Attack.attack())
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if action == "Interact":
+	if is_interacting:
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
 			time_since_interact = 0
-			
+	else:
+		time_since_interact = 0
+
 	get_input()
 	%Body.setAnimation(action, direction)
 	move_and_slide()

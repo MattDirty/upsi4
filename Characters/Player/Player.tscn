@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
-[ext_resource type="PackedScene" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
+[ext_resource type="PackedScene" uid="uid://dk8lf3fekj5g7" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
 [ext_resource type="Script" path="res://Characters/Player/Attack.gd" id="4_nkwap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]

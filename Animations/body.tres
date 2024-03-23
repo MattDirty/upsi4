@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=90 format=3 uid="uid://cjdw85cnwdy1q"]
+[gd_resource type="SpriteFrames" load_steps=91 format=3 uid="uid://dej3wiodw0hme"]
 
 [ext_resource type="Texture2D" uid="uid://bjj12smggjdst" path="res://Animations/Animations/body_damage.png" id="1_jvrrq"]
 [ext_resource type="Texture2D" uid="uid://c18nsly10hjn0" path="res://Animations/Animations/death_body.png" id="2_oknsj"]
@@ -183,6 +183,10 @@ atlas = ExtResource("3_ddl8v")
 region = Rect2(0, 80, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l38b"]
+atlas = ExtResource("4_4arkl")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnpuf"]
 atlas = ExtResource("4_4arkl")
 region = Rect2(0, 0, 80, 80)
 
@@ -537,6 +541,18 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l38b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l38b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l38b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnpuf")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1l38b")
 }, {

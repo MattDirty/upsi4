@@ -1,14 +1,37 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ceohj07uitcok"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ceohj07uitcok"]
 
 [ext_resource type="Texture2D" uid="uid://c64nsf3hsi78b" path="res://Animations/Animations/hand.png" id="1_4pvrn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7iqs"]
+atlas = ExtResource("1_4pvrn")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3blph"]
+atlas = ExtResource("1_4pvrn")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f137"]
+atlas = ExtResource("1_4pvrn")
+region = Rect2(0, 0, 8, 8)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4pvrn")
+"texture": SubResource("AtlasTexture_j7iqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3blph")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f137")
+}],
+"loop": true,
+"name": &"Idle",
 "speed": 5.0
 }]

@@ -12,10 +12,15 @@ func _physics_process(_delta_time):
 	position = get_target_normalized() * distance
 	look_at(get_parent().global_position)
 	rotate(PI / 2)
+	%Hand1.look_at(get_global_mouse_position())
+	%Hand2.look_at(get_global_mouse_position())
 
 func get_target_normalized() -> Vector2:
 	return get_parent().global_position.direction_to(get_global_mouse_position()).normalized()
 
 func setAnimation(action):
-	print(action)
+	if action == self.action:
+		return
 	self.action = action
+	if action == "Attack":
+		%Hand2.frame = 1

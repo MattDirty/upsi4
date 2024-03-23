@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=14 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Script" path="res://Animations/CharacterAnimation.gd" id="2_ogm2u"]
@@ -173,63 +173,57 @@ tracks/4/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrho3"]
-_data = {
-"Idle": SubResource("Animation_pml8y"),
-"Interact": SubResource("Animation_wvwlf"),
-"RESET": SubResource("Animation_fudi0")
-}
-
-[sub_resource type="Animation" id="Animation_hwjud"]
-resource_name = "Sleep"
+[sub_resource type="Animation" id="Animation_0bbw0"]
+resource_name = "Attack"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SleepText:visible")
+tracks/0/path = NodePath("Hands/Hand1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(8, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 4), Vector2(-8, 10), Vector2(-8, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SleepText:position")
+tracks/1/path = NodePath("Hands/Hand2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 8, 1, 1),
 "update": 0,
-"values": [Vector2(2, -8), Vector2(8, -12)]
+"values": [Vector2(8, 4), Vector2(8, 4), Vector2(8, 10), Vector2(8, 4)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SleepText:rotation")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SleepText:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0.3, 0.8),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.01, 0.01), Vector2(0.2, 0.2)]
+"values": [{
+"args": [],
+"method": &"fireAnimation"
+}, {
+"args": [],
+"method": &"fireAnimation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrho3"]
+_data = {
+"Attack": SubResource("Animation_0bbw0"),
+"Idle": SubResource("Animation_pml8y"),
+"Interact": SubResource("Animation_wvwlf"),
+"RESET": SubResource("Animation_fudi0")
 }
 
 [sub_resource type="Animation" id="Animation_ds2od"]
@@ -237,7 +231,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SleepText:visible")
+tracks/0/path = NodePath("Mouth/SleepText:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -249,7 +243,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SleepText:position")
+tracks/1/path = NodePath("Mouth/SleepText:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -261,7 +255,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SleepText:rotation")
+tracks/2/path = NodePath("Mouth/SleepText:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -273,7 +267,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SleepText:scale")
+tracks/3/path = NodePath("Mouth/SleepText:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -282,9 +276,138 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mouth/AttackText:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mouth/AttackText:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mouth/AttackText:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_hwjud"]
+resource_name = "Sleep"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouth/SleepText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mouth/SleepText:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, -8), Vector2(8, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mouth/SleepText:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mouth/SleepText:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_d2utm"]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouth/AttackText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mouth/AttackText:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(14, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mouth/AttackText:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.3, 0.3)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywx4s"]
 _data = {
+"Attack": SubResource("Animation_d2utm"),
 "RESET": SubResource("Animation_ds2od"),
 "Sleep": SubResource("Animation_hwjud")
 }
@@ -305,21 +428,40 @@ autoplay = "Idle"
 
 [node name="Hands" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(2.08165e-12, 7)
 script = ExtResource("3_nxgfp")
 
 [node name="Hand1" type="AnimatedSprite2D" parent="Hands"]
 unique_name_in_owner = true
 position = Vector2(-3, 5)
+scale = Vector2(1, -1)
 sprite_frames = ExtResource("3_wxt5j")
-animation = &"idle"
+animation = &"Idle"
 
 [node name="Hand2" type="AnimatedSprite2D" parent="Hands"]
 unique_name_in_owner = true
 position = Vector2(4, 4)
 sprite_frames = ExtResource("3_wxt5j")
-animation = &"idle"
+animation = &"Idle"
 
-[node name="SleepText" type="Label" parent="."]
+[node name="AnimationPlayerLabel" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ywx4s")
+}
+
+[node name="Mouth" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AttackText" type="Label" parent="Mouth"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.01, 0.01)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Piew"
+
+[node name="SleepText" type="Label" parent="Mouth"]
 visible = false
 offset_left = 6.0
 offset_top = -8.0
@@ -329,9 +471,3 @@ scale = Vector2(0.01, 0.01)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "zzZ"
-
-[node name="AnimationPlayerLabel" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_ywx4s")
-}
