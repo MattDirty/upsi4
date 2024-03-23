@@ -5,6 +5,9 @@ var paused = false
 var currentHour = 0
 
 
+@onready var clock = $Clock
+
+
 func _ready():
 	$HourTimer.start()
 
@@ -25,10 +28,10 @@ func _on_continue_btn_pressed():
 
 func pauseMenu():
 	if paused:
-		$Player/PauseMenu.hide()
+		$PauseMenu.hide()
 		Engine.time_scale = 1
 	else:
-		$Player/PauseMenu.show()
+		$PauseMenu.show()
 		Engine.time_scale = 0
 		
 	paused = !paused
@@ -46,6 +49,7 @@ func backToMainMenu():
 func addOneHour():
 	currentHour += 1
 	$ClockBell.play()
+	clock.changeHour(currentHour)
 	
 	if (currentHour == 8):
 		await get_tree().create_timer(2).timeout

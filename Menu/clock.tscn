@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://t4vsg4eroc1g"]
+
+[ext_resource type="Script" path="res://Menu/clock.gd" id="1_k1nx0"]
+[ext_resource type="Texture2D" uid="uid://cx8ijgy45q6b6" path="res://Assets/Sprites/8er clock/BitD_clock_0_of_8.png" id="1_tnx4v"]
+[ext_resource type="Texture2D" uid="uid://cg8lwgasflchd" path="res://Assets/Sprites/8er clock/BitD_clock_1_of_8.png" id="2_y44ty"]
+[ext_resource type="Texture2D" uid="uid://c3wsj0yk8jkp5" path="res://Assets/Sprites/8er clock/BitD_clock_2_of_8.png" id="3_5jq6h"]
+[ext_resource type="Texture2D" uid="uid://jl8u2lgm0rb5" path="res://Assets/Sprites/8er clock/BitD_clock_3_of_8.png" id="4_sjkid"]
+[ext_resource type="Texture2D" uid="uid://bgudbg5vl7rxn" path="res://Assets/Sprites/8er clock/BitD_clock_4_of_8.png" id="5_3bypx"]
+[ext_resource type="Texture2D" uid="uid://cbsv8l5enb7kb" path="res://Assets/Sprites/8er clock/BitD_clock_5_of_8.png" id="6_s8lr0"]
+[ext_resource type="Texture2D" uid="uid://n0yq2or3boha" path="res://Assets/Sprites/8er clock/BitD_clock_6_of_8.png" id="7_3aafw"]
+[ext_resource type="Texture2D" uid="uid://i7ahgwhr2h5m" path="res://Assets/Sprites/8er clock/BitD_clock_7_of_8.png" id="8_hjs3y"]
+[ext_resource type="Texture2D" uid="uid://bhx26ucw2cmmk" path="res://Assets/Sprites/8er clock/BitD_clock_8_of_8.png" id="9_pdmb6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uge1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tnx4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y44ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5jq6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sjkid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3bypx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s8lr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3aafw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hjs3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pdmb6")
+}],
+"loop": true,
+"name": &"timePassing",
+"speed": 5.0
+}]
+
+[node name="Clock" type="CanvasLayer"]
+script = ExtResource("1_k1nx0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(478, 40)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_uge1e")
+animation = &"timePassing"
+frame = 8

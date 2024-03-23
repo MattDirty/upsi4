@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://u25qvudy06kt"]
 
 [ext_resource type="Script" path="res://Menu/GameOverScreen.gd" id="1_tar4h"]
-[ext_resource type="Texture2D" uid="uid://65bplrwn8fib" path="res://Assets/Textures/DreamGameOver.png" id="2_mp0wa"]
+[ext_resource type="Texture2D" uid="uid://dqp0uj72y1m6q" path="res://Assets/Textures/DreamGameOver.png" id="2_mp0wa"]
 [ext_resource type="Theme" uid="uid://bgntc2jm0thko" path="res://Assets/Theme.tres" id="3_kdb6o"]
 [ext_resource type="AudioStream" uid="uid://bnwxbr0xb5wom" path="res://Assets/Sounds/SFX/Deep Hits.wav" id="4_5x2b0"]
 

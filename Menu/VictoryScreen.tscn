@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qi18qtnipy53"]
 
 [ext_resource type="Script" path="res://Menu/VictoryScreen.gd" id="1_1orgy"]
-[ext_resource type="Texture2D" uid="uid://cclwet2l2dnsi" path="res://Assets/Textures/dawn.png" id="1_sytdn"]
+[ext_resource type="Texture2D" uid="uid://dghgq0ke7esfk" path="res://Assets/Textures/dawn.png" id="1_sytdn"]
 [ext_resource type="Theme" uid="uid://bgntc2jm0thko" path="res://Assets/Theme.tres" id="2_s72hb"]
 [ext_resource type="AudioStream" uid="uid://crysp56ie2kes" path="res://Assets/Sounds/Schumann - Scenes from Childhood - 07 - ReverieCut.mp3" id="4_prem0"]
 

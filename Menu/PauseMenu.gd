@@ -1,11 +1,11 @@
-extends Control
+extends CanvasLayer
 
 
 @onready var playground = get_tree().root.get_node("Playground")
 
 
 func _ready():
-	$PauseMenu/VBoxContainer/ContinueBtn.grab_focus()
+	$CenterContainer/PanelContainer/VBoxContainer/ContinueBtn.grab_focus()
 
 
 func _on_continue_btn_pressed():

@@ -1,51 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8f151o6jlqsd"]
+[gd_scene load_steps=3 format=3 uid="uid://c8f151o6jlqsd"]
 
-[ext_resource type="Texture2D" uid="uid://cxaj6wavj6v1r" path="res://Assets/Textures/DreamWithoutDustBackground.png" id="1_0j8gc"]
 [ext_resource type="Script" path="res://Menu/PauseMenu.gd" id="1_cvasm"]
 [ext_resource type="Theme" uid="uid://bgntc2jm0thko" path="res://Assets/Theme.tres" id="2_8gbh3"]
 
-[node name="PauseMenu" type="Control"]
-layout_mode = 3
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_cvasm")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cvasm")
 
-[node name="PauseMenu" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -156.5
-offset_right = 175.0
-offset_bottom = 156.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_0j8gc")
-expand_mode = 1
-stretch_mode = 6
-flip_h = true
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -158.0
-offset_top = -91.5
-offset_right = 158.0
-offset_bottom = 91.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
 
-[node name="ContinueBtn" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="ContinueBtn" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../BackToMainMenuBtn")
 theme = ExtResource("2_8gbh3")
@@ -53,7 +27,7 @@ theme_override_font_sizes/font_size = 40
 text = "Continue"
 alignment = 0
 
-[node name="RestartBtn" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="RestartBtn" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../BackToMainMenuBtn")
 theme = ExtResource("2_8gbh3")
@@ -61,7 +35,7 @@ theme_override_font_sizes/font_size = 40
 text = "Restart the night"
 alignment = 0
 
-[node name="BackToMainMenuBtn" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="BackToMainMenuBtn" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ContinueBtn")
 theme = ExtResource("2_8gbh3")
@@ -69,6 +43,6 @@ theme_override_font_sizes/font_size = 40
 text = "Back to main menu"
 alignment = 0
 
-[connection signal="pressed" from="PauseMenu/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/BackToMainMenuBtn" to="." method="_on_back_to_main_menu_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/BackToMainMenuBtn" to="." method="_on_back_to_main_menu_btn_pressed"]
