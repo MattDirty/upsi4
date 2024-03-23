@@ -30,13 +30,17 @@ func setAnimation(action, direction):
 
 	if %AnimationPlayer.has_animation(action):
 		%AnimationPlayer.play(action)
+	else:
+		%AnimationPlayer.play("Idle")
 	if %Hands/Hand1.sprite_frames.has_animation(action):
 		%Hands/Hand1.play(action)
 		%Hands/Hand2.play(action)
+	else:
+		%Hands/Hand1.play("Idle")
+		%Hands/Hand2.play("Idle")
 	%Hands.setAnimation(action)
 
 	if action == "Damage":
-		
 		damageAnimation()
 		self.stop()
 		self.frame = 0

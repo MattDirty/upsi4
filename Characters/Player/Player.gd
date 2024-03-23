@@ -75,6 +75,7 @@ func takeDamage(value: int):
 		death()
 
 func death():
+	is_dead = true
 	%Body.setAnimation("Death", direction)
 
 
