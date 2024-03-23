@@ -16,6 +16,9 @@ var interact_target: Node2D
 var time_since_interact := 0.0
 var safe_areas := []
 
+func _input(event):
+	if event.is_action_pressed("take_damage"):
+		takeDamage(1)
 
 func get_input():
 	if Input.is_action_pressed("interact") and can_interact:
@@ -63,10 +66,12 @@ func _process(delta):
 
 func takeDamage(value: int):
 	health -= value
+	%Body.setAnimation("Damage", direction)
 	if health <= 0:
 		death()
 
 func death():
+	%Body.setAnimation("Death", direction)
 	pass
 
 func setDirectionInRelationToMouse():
