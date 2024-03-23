@@ -17,7 +17,7 @@ position = Vector2(1.19209e-07, 0)
 shape = SubResource("RectangleShape2D_au0si")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.775, 2.775)
+zoom = Vector2(2, 2)
 
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
