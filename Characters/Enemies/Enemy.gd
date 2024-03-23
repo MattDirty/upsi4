@@ -16,4 +16,6 @@ func take_damages(damagesTaken: int):
 	health -= damagesTaken
 
 	if health <= 0:
+		Animator.play("Death")
+		await Animator.animation_finished
 		queue_free()

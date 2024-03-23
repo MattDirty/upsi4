@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_6drgq")
 
 [node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
 sprite_frames = ExtResource("2_cqewl")
-animation = &"Idle"
+animation = &"Death"
 script = null
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterAnimator"]
