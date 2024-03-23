@@ -16,6 +16,9 @@ var interact_target: Node2D
 var time_since_interact := 0.0
 var safe_areas := []
 
+func _input(event):
+	if event.is_action_pressed("take_damage"):
+		takeDamage(1)
 
 func get_input():
 	if Input.is_action_pressed("interact") and can_interact:
@@ -53,14 +56,23 @@ func _process(delta):
 	get_input()
 	%Body.setAnimation(action, direction)
 	move_and_slide()
-	
+
 	if time_since_outside_damage >= outside_damage_interval and safe_areas.size() <= 0:
-		health -= 1
+		takeDamage(1)
 		time_since_outside_damage = 0
 
 	time_since_interact += delta
 	time_since_outside_damage += delta
 
+func takeDamage(value: int):
+	health -= value
+	%Body.setAnimation("Damage", direction)
+	if health <= 0:
+		death()
+
+func death():
+	%Body.setAnimation("Death", direction)
+	pass
 
 func setDirectionInRelationToMouse():
 	direction = Orientation.get_direction_from_angle(get_local_mouse_position().angle())

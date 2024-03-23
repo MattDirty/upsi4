@@ -1,9 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=21 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
+[ext_resource type="Shader" path="res://Shaders/Etheral.gdshader" id="1_yvud6"]
 [ext_resource type="Script" path="res://Animations/CharacterAnimation.gd" id="2_ogm2u"]
 [ext_resource type="Script" path="res://Animations/Hands.gd" id="3_nxgfp"]
 [ext_resource type="SpriteFrames" uid="uid://ceohj07uitcok" path="res://Animations/hand.tres" id="3_wxt5j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fylu3"]
+shader = ExtResource("1_yvud6")
+shader_parameter/AMPLITUDE = 0.0
+shader_parameter/FREQUENCY = 1.0
+shader_parameter/DISTORTION_AMOUNT = 2.0
+shader_parameter/DISTORTION_SPEED = 1.0
 
 [sub_resource type="Animation" id="Animation_pml8y"]
 resource_name = "Idle"
@@ -420,6 +428,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mouth/DamageText:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mouth/DamageText:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mouth/DamageText:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mouth/DamageText:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hwjud"]
 resource_name = "Sleep"
@@ -472,6 +528,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01), Vector2(0.2, 0.2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mouth/DamageText:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mouth/AttackText:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_d2utm"]
 resource_name = "Attack"
@@ -512,10 +592,110 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01), Vector2(0.3, 0.3)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mouth/DamageText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mouth/SleepText:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cvw2g"]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouth/DamageText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mouth/DamageText:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.4, 0.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mouth/DamageText:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(22, -6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mouth/DamageText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mouth/AttackText:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mouth/SleepText:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywx4s"]
 _data = {
 "Attack": SubResource("Animation_d2utm"),
+"Damage": SubResource("Animation_cvw2g"),
 "RESET": SubResource("Animation_ds2od"),
 "Sleep": SubResource("Animation_hwjud")
 }
@@ -541,8 +721,9 @@ fill = 1
 
 [node name="Body" type="AnimatedSprite2D"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_fylu3")
 sprite_frames = ExtResource("1_og2mw")
-animation = &"Interact"
+animation = &"AttackNorth"
 autoplay = "IdleSouth"
 script = ExtResource("2_ogm2u")
 
@@ -592,6 +773,21 @@ theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 28
 text = "zzZ"
 
+[node name="DamageText" type="Label" parent="Mouth"]
+unique_name_in_owner = true
+visible = false
+light_mask = 32
+offset_right = 46.0
+offset_bottom = 28.0
+scale = Vector2(0.01, 0.01)
+theme_override_colors/font_color = Color(0.654902, 0, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "Ouch"
+
 [node name="Hands" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(2.08165e-12, 7)
@@ -613,6 +809,7 @@ animation = &"Idle"
 [node name="FireEmiter" type="PointLight2D" parent="Hands"]
 unique_name_in_owner = true
 enabled = false
+energy = 20.0
 texture = SubResource("GradientTexture2D_ui1ny")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

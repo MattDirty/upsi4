@@ -6,14 +6,27 @@ signal startInteract
 signal stopInteract
 signal fire(position: Vector2)
 
+const DAMAGE_TEXT = [
+	"Ouch",
+	"Aie",
+	"Hok",
+	"Waaah",
+	"Ouin!",
+]
+
 func setAnimation(action, direction):
 	if action == "Interact":
 		direction = ""
 	elif self.action == "Interact":
 		%AnimationPlayerLabel.stop()
 		stopInteract.emit()
+	if "Death" in self.action and "Death" == action:
+		return
+	if action + direction == self.action and action != "Damage":
+		return
+	print(action + direction)
 
-	if action + direction == self.action:
+	if "Damage" in self.action and action != "Damage" and action != "Death" and action != "Interact" and self.is_playing():
 		return
 
 	if %AnimationPlayer.has_animation(action):
@@ -21,14 +34,31 @@ func setAnimation(action, direction):
 	if %Hands/Hand1.sprite_frames.has_animation(action):
 		%Hands/Hand1.play(action)
 		%Hands/Hand2.play(action)
+	%Hands.setAnimation(action)
+
+	if action == "Damage":
+		
+		damageAnimation()
+		self.stop()
+		self.frame = 0
+
+	if "Death" in self.action:
+		return
+
 	if self.sprite_frames.has_animation(action + direction):
 		self.play(action + direction)
-	%Hands.setAnimation(action)
 	self.action = action + direction
 
 func endInteractTransition():
+	%Mouth.rotation = 0
 	%AnimationPlayerLabel.play("Sleep")
 	startInteract.emit()
+
+func damageAnimation():
+	%AnimationPlayerLabel.stop()
+	%Mouth.rotation = randf_range(-PI / 3, PI / 3)
+	%DamageText.text = DAMAGE_TEXT.pick_random()
+	%AnimationPlayerLabel.play("Damage")
 
 func fireAnimation():
 	%Mouth.rotation = randf_range(-PI / 3, PI / 3)
