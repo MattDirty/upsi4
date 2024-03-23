@@ -36,6 +36,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_mkdsw")
 Button/styles/hover = SubResource("StyleBoxEmpty_mohna")
 Button/styles/normal = SubResource("StyleBoxEmpty_wk7fj")
 Button/styles/pressed = SubResource("StyleBoxEmpty_g0xfq")
-Label/colors/font_color = Color(0.999524, 0.945577, 0.851741, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_77xvx")
