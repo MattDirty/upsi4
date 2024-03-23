@@ -34,7 +34,10 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_area_entered(area):
+	if already_spawn:
+		return
 	var zone = area.get_parent()
 	if zone is SafeZone:
 		zone.lose.emit()
+		already_spawn = true
 	pass # Replace with function body.

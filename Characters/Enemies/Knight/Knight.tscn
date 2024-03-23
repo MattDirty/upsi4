@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_6drgq")
 
 [node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
 sprite_frames = ExtResource("2_cqewl")
-animation = &"Death"
+animation = &"Idle"
 script = null
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterAnimator"]
@@ -49,7 +49,7 @@ texture_scale = 2.89
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1.5, -1)
@@ -63,3 +63,4 @@ shape = SubResource("RectangleShape2D_5i42y")
 debug_color = Color(1, 0.611765, 0, 0.419608)
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
