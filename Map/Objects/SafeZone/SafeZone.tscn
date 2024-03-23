@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://be5af5p5i8d1q"]
 
-[ext_resource type="Texture2D" uid="uid://cfn1ackm4oim5" path="res://Map/Objects/SafeZone/SafeZone.png" id="1_7sb3l"]
 [ext_resource type="Script" path="res://Map/Objects/SafeZone/SafeZone.gd" id="1_fbttr"]
+[ext_resource type="Texture2D" uid="uid://b1lu4w5rb8nek" path="res://Assets/Sprites/bed 1.png" id="2_rl2ri"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clcvn"]
 radius = 42.5793
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wvbdm"]
-radius = 300.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50prh"]
+size = Vector2(21, 30)
 
 [sub_resource type="Gradient" id="Gradient_2v51e"]
 interpolation_mode = 2
@@ -26,7 +26,7 @@ fill_to = Vector2(0.692308, 0.0299145)
 script = ExtResource("1_fbttr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7sb3l")
+texture = ExtResource("2_rl2ri")
 
 [node name="Interact" type="Area2D" parent="."]
 
@@ -36,7 +36,8 @@ shape = SubResource("CircleShape2D_clcvn")
 [node name="SafeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
-shape = SubResource("CircleShape2D_wvbdm")
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_50prh")
 debug_color = Color(0.635294, 0.741176, 0.00392157, 0.419608)
 
 [node name="PointLight2D" type="PointLight2D" parent="SafeArea"]

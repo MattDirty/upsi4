@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://kyeaogpfclel"]
 
-[ext_resource type="Texture2D" uid="uid://dbrmgxn6qcdgr" path="res://Map/tile.png" id="1_7ilg5"]
+[ext_resource type="Texture2D" uid="uid://cu1bnm1gkot3r" path="res://Assets/Sprites/wood floor.png" id="1_yo5jt"]
 
 [node name="Map" type="Node2D"]
 
 [node name="Tiles" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture_repeat = 2
-texture = ExtResource("1_7ilg5")
+texture = ExtResource("1_yo5jt")
 region_enabled = true
 region_rect = Rect2(0, 0, 12288, 12288)
 region_filter_clip_enabled = true
