@@ -613,6 +613,7 @@ animation = &"Idle"
 [node name="FireEmiter" type="PointLight2D" parent="Hands"]
 unique_name_in_owner = true
 enabled = false
+energy = 20.0
 texture = SubResource("GradientTexture2D_ui1ny")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

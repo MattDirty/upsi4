@@ -53,14 +53,21 @@ func _process(delta):
 	get_input()
 	%Body.setAnimation(action, direction)
 	move_and_slide()
-	
+
 	if time_since_outside_damage >= outside_damage_interval and safe_areas.size() <= 0:
-		health -= 1
+		takeDamage(1)
 		time_since_outside_damage = 0
 
 	time_since_interact += delta
 	time_since_outside_damage += delta
 
+func takeDamage(value: int):
+	health -= value
+	if health <= 0:
+		death()
+
+func death():
+	pass
 
 func setDirectionInRelationToMouse():
 	direction = Orientation.get_direction_from_angle(get_local_mouse_position().angle())
