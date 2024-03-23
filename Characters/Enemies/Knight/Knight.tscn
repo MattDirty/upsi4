@@ -1,76 +1,64 @@
-[gd_scene load_steps=12 format=3 uid="uid://b71d0wsey6gub"]
+[gd_scene load_steps=9 format=3 uid="uid://b71d0wsey6gub"]
 
 [ext_resource type="Script" path="res://Characters/Enemies/Knight/Knight.gd" id="1_tfgev"]
-[ext_resource type="Shader" path="res://Characters/Enemies/Knight/Knight.gdshader" id="1_ttxow"]
 [ext_resource type="SpriteFrames" uid="uid://daj0xrvies5v7" path="res://Characters/Enemies/Knight/Frames/Knight.tres" id="2_cqewl"]
 [ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="3_pkah7"]
-[ext_resource type="Theme" uid="uid://c3ew2wiskvaai" path="res://Characters/Enemies/Enemy.tres" id="5_4uks6"]
-
-[sub_resource type="Shader" id="Shader_r6if4"]
-code = "shader_type canvas_item;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-	COLOR.r = 1.0;}
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e40q8"]
-shader = SubResource("Shader_r6if4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
-size = Vector2(4, 5)
+size = Vector2(15, 20)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijjsl"]
-resource_local_to_scene = true
-shader = ExtResource("1_ttxow")
+[sub_resource type="Gradient" id="Gradient_2v51e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.053125, 0.265625, 1)
+colors = PackedColorArray(1, 1, 1, 0.905882, 1, 1, 1, 0.888764, 1, 1, 1, 0.486275, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wjf8"]
+gradient = SubResource("Gradient_2v51e")
+width = 275
+height = 275
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.820513, 0.123932)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3i1"]
-size = Vector2(12, 20)
+size = Vector2(15, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i42y"]
-size = Vector2(6, 14)
+size = Vector2(17, 25)
 
 [node name="Knight" type="CharacterBody2D"]
-material = SubResource("ShaderMaterial_e40q8")
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tfgev")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -6.0
-offset_top = -16.0
-offset_right = 6.0
-offset_bottom = -12.0
-theme = ExtResource("5_4uks6")
-show_percentage = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_6drgq")
 
 [node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
-material = SubResource("ShaderMaterial_ijjsl")
 sprite_frames = ExtResource("2_cqewl")
-animation = &"IdleSouth"
+animation = &"Idle"
+script = null
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterAnimator"]
+position = Vector2(4.5, -3)
+scale = Vector2(0.0113243, 0.0125826)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_1wjf8")
+texture_scale = 2.89
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_gk3i1")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_5i42y")
 debug_color = Color(1, 0.611765, 0, 0.419608)
 
