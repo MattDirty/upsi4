@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqwomwcwnjyrr"]
+[gd_scene load_steps=5 format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
 [ext_resource type="Script" path="res://Characters/Player/Attack.gd" id="4_nkwap"]
-[ext_resource type="Theme" uid="uid://bb5e7ts486nsv" path="res://Characters/Player/Player.tres" id="5_8u6uf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -21,14 +20,6 @@ zoom = Vector2(2, 2)
 
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
-
-[node name="CooldownBar" type="ProgressBar" parent="."]
-offset_left = -8.0
-offset_top = 11.0
-offset_right = 8.0
-offset_bottom = 15.0
-theme = ExtResource("5_8u6uf")
-show_percentage = false
 
 [node name="Attack" type="Node2D" parent="."]
 script = ExtResource("4_nkwap")
