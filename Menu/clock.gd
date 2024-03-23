@@ -2,8 +2,8 @@ extends CanvasLayer
 
 
 func _ready():
-	$AnimatedSprite2D.set_frame(0)
+	$BoxContainer/AnimatedSprite2D.set_frame(0)
 
 
 func changeHour(time):
-	$AnimatedSprite2D.set_frame(time)
+	$BoxContainer/AnimatedSprite2D.set_frame(time)

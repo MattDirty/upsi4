@@ -49,9 +49,19 @@ animations = [{
 [node name="Clock" type="CanvasLayer"]
 script = ExtResource("1_k1nx0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(478, 40)
-scale = Vector2(0.05, 0.05)
+[node name="BoxContainer" type="BoxContainer" parent="."]
+custom_minimum_size = Vector2(75, 75)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_right = 37.5
+offset_bottom = 75.0
+grow_horizontal = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoxContainer"]
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_uge1e")
 animation = &"timePassing"
 frame = 8
+centered = false
