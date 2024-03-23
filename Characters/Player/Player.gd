@@ -7,12 +7,12 @@ class_name Player
 @onready var health := max_health
 @export var interact_interval := 0.5
 @export var outside_damage_interval := 0.5
-var time_since_outside_damage := 1000.0
+var time_since_outside_damage := 0.0
 var direction = "South"
 var action = "Idle"
 var can_interact := false
 var interact_target: Node2D
-var time_since_interact := 1000.0
+var time_since_interact := 0.0
 var safe_areas := []
 
 
@@ -42,14 +42,15 @@ func _process(delta):
 	if action == "Interact":
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
-			time_since_interact -= interact_interval
+			time_since_interact = 0
+			
 	get_input()
 	%Body.setAnimation(action, direction)
 	move_and_slide()
 	
 	if time_since_outside_damage >= outside_damage_interval and safe_areas.size() <= 0:
 		health -= 1
-		time_since_outside_damage -= outside_damage_interval
+		time_since_outside_damage = 0
 
 	time_since_interact += delta
 	time_since_outside_damage += delta

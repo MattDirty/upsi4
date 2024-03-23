@@ -13,13 +13,10 @@ var deal_with_status = {
 	"Attacking": deal_with_attacking,
 }
 @onready var hitbox: Area2D = $"Area2D"
-@onready var CooldownBar: ProgressBar = $"../CooldownBar"
 
 
 func reset_weapon():
 	cooldown_elapsed = cooldown
-	CooldownBar.max_value = cooldown
-	CooldownBar.value = cooldown_elapsed
 	ticks_since_attack = 0
 	attacked_enemies.clear()
 	status = "Ready"
@@ -44,8 +41,6 @@ func attack():
 
 func deal_with_cooldown(delta):
 		cooldown_elapsed += delta
-		CooldownBar.max_value = cooldown
-		CooldownBar.value = cooldown_elapsed
 		if cooldown_elapsed >= cooldown:
 			status = "Ready"
 
