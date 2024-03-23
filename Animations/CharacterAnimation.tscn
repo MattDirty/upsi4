@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=27 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Shader" path="res://Shaders/Etheral.gdshader" id="1_yvud6"]
 [ext_resource type="Script" path="res://Animations/CharacterAnimation.gd" id="2_ogm2u"]
 [ext_resource type="Script" path="res://Animations/Hands.gd" id="3_nxgfp"]
 [ext_resource type="SpriteFrames" uid="uid://ceohj07uitcok" path="res://Animations/hand.tres" id="3_wxt5j"]
+[ext_resource type="AudioStream" uid="uid://cra2ymc3ikawj" path="res://Assets/Sounds/SFX/pioupiou.mp3" id="4_l11hn"]
+[ext_resource type="AudioStream" uid="uid://hxu5yxm24f6b" path="res://Assets/Sounds/SFX/ouch.mp3" id="5_bdj8m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fylu3"]
 shader = ExtResource("1_yvud6")
@@ -252,10 +254,47 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DeathLight:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("DeathLight:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("DeathLight:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
 
 [sub_resource type="Animation" id="Animation_0bbw0"]
 resource_name = "Attack"
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -333,13 +372,100 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.0, 2.0, 1.0, 2.0, 1.0]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_l11hn")
+}],
+"times": PackedFloat32Array(0.25)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_7o5yo"]
 resource_name = "Death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathLight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathLight:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.6, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(2, 2)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deathAnimation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_coq5j"]
+resource_name = "Damage"
+length = 0.3
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.88,
+"start_offset": 0.05,
+"stream": ExtResource("5_bdj8m")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrho3"]
 _data = {
 "Attack": SubResource("Animation_0bbw0"),
+"Damage": SubResource("Animation_coq5j"),
 "Death": SubResource("Animation_7o5yo"),
 "Idle": SubResource("Animation_pml8y"),
 "Interact": SubResource("Animation_wvwlf"),
@@ -723,11 +849,21 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_lnfqj")
 fill = 1
 
+[sub_resource type="Gradient" id="Gradient_2vd3x"]
+offsets = PackedFloat32Array(0.00518135, 0.637306, 1)
+colors = PackedColorArray(0.345098, 0.294118, 0.886275, 1, 0.558282, 0.523897, 0.923295, 0.674479, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbify"]
+gradient = SubResource("Gradient_2vd3x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 2.08165e-12)
+
 [node name="Body" type="AnimatedSprite2D"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_fylu3")
 sprite_frames = ExtResource("1_og2mw")
-animation = &"AttackNorth"
+animation = &"DeathSouth"
 autoplay = "IdleSouth"
 script = ExtResource("2_ogm2u")
 
@@ -802,7 +938,7 @@ unique_name_in_owner = true
 position = Vector2(-3, 5)
 scale = Vector2(1, -1)
 sprite_frames = ExtResource("3_wxt5j")
-animation = &"Death"
+animation = &"Attack"
 
 [node name="Hand2" type="AnimatedSprite2D" parent="Hands"]
 unique_name_in_owner = true
@@ -819,3 +955,12 @@ texture = SubResource("GradientTexture2D_ui1ny")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 range_item_cull_mask = 32
 texture = SubResource("GradientTexture2D_vqv8e")
+
+[node name="DeathLight" type="PointLight2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.01, 0.01)
+texture = SubResource("GradientTexture2D_sbify")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.0
