@@ -3,6 +3,7 @@ extends Node2D
 @export var max_size := 1.0
 @export var step_size := 0.1
 @export var initial_size := 0.5
+@export var lost_size := 0.3
 @onready var current_size := initial_size
 @onready var safeArea = $SafeArea
 
@@ -13,8 +14,7 @@ func _ready():
 
 func setScaleFromCurrentSize():
 	safeArea.scale = Vector2(current_size, current_size)
-
-
+	
 func _on_interact_body_entered(body):
 	body.toggleInteract(self)
 
@@ -25,8 +25,8 @@ func _on_interact_body_exited(body):
 
 func playerInteract():
 	current_size += step_size
-	if current_size >= max_size:
-		current_size = max_size
+	if current_size >= max_size - lost_size:
+		current_size = max_size - lost_size
 	setScaleFromCurrentSize()
 
 
