@@ -5,6 +5,8 @@ var velocity: Vector2
 var direction: Vector2
 var layer: int
 
+var already_spawn := false
+
 @export var bulletDuration := 4.0
 
 @onready var lifeTimer := Timer.new()
@@ -25,6 +27,14 @@ func _physics_process(delta_time):
 	position += velocity * delta_time
 
 
+
 func _on_area_2d_body_entered(body):
 	body.take_damages(10)
 	queue_free()
+
+
+func _on_area_2d_area_entered(area):
+	var zone = area.get_parent()
+	if zone is SafeZone:
+		zone.lose.emit()
+	pass # Replace with function body.

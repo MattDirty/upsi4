@@ -12,6 +12,7 @@ z_index = 42
 script = ExtResource("1_mdy0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1.19209e-07, 0)
 shape = SubResource("RectangleShape2D_au0si")
 

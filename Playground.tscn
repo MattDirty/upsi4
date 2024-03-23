@@ -39,7 +39,6 @@ metadata/_edit_lock_ = true
 [node name="SafeZone2" parent="." instance=ExtResource("5_mjhiq")]
 position = Vector2(471, 0)
 initial_size = 0.1
-lost_size = 0.6
 metadata/_edit_lock_ = true
 
 [node name="ClockBell" type="AudioStreamPlayer2D" parent="."]
