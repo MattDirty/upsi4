@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Knight/Knight.tscn" id="4_8c3qm"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
-[ext_resource type="PackedScene" uid="uid://c8f151o6jlqsd" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
+[ext_resource type="PackedScene" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
 [ext_resource type="AudioStream" uid="uid://dn14obickocq8" path="res://Assets/Sounds/SFX/old-church-bell-6298.mp3" id="9_l14sh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y4mut"]

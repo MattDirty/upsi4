@@ -4,7 +4,7 @@ var action = "IdleSouth"
 
 signal startInteract
 signal stopInteract
-signal fire
+signal fire(position: Vector2)
 
 func setAnimation(action, direction):
 	if action == "Interact":
@@ -33,4 +33,4 @@ func endInteractTransition():
 func fireAnimation():
 	%Mouth.rotation = randf_range(-PI / 3, PI / 3)
 	%AnimationPlayerLabel.play("Attack")
-	fire.emit()
+	fire.emit(%FireEmiter.global_position)

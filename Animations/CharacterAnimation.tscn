@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=18 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Script" path="res://Animations/CharacterAnimation.gd" id="2_ogm2u"]
@@ -30,6 +30,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(4, 3), Vector2(4, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hands/FireEmiter:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mouth/AttackText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_wvwlf"]
@@ -172,6 +196,54 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hands/FireEmiter:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hands/FireEmiter:enabled")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hands/FireEmiter:texture_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mouth/AttackText:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0bbw0"]
 resource_name = "Attack"
@@ -216,6 +288,42 @@ tracks/2/keys = {
 "args": [],
 "method": &"fireAnimation"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hands/FireEmiter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, 14), Vector2(-9, 14), Vector2(9, 14), Vector2(9, 14)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hands/FireEmiter:enabled")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hands/FireEmiter:texture_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 2.0, 1.0, 2.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrho3"]
@@ -412,6 +520,25 @@ _data = {
 "Sleep": SubResource("Animation_hwjud")
 }
 
+[sub_resource type="Gradient" id="Gradient_2v51e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0152672, 0.901554, 0.958549, 1)
+colors = PackedColorArray(1, 1, 1, 0.905882, 1, 1, 1, 0.888764, 1, 1, 1, 0.486275, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ui1ny"]
+gradient = SubResource("Gradient_2v51e")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_lnfqj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqv8e"]
+gradient = SubResource("Gradient_lnfqj")
+fill = 1
+
 [node name="Body" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = ExtResource("1_og2mw")
@@ -425,6 +552,38 @@ libraries = {
 "": SubResource("AnimationLibrary_qrho3")
 }
 autoplay = "Idle"
+
+[node name="AnimationPlayerLabel" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ywx4s")
+}
+
+[node name="Mouth" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AttackText" type="Label" parent="Mouth"]
+visible = false
+light_mask = 32
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.01, 0.01)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Piew"
+
+[node name="SleepText" type="Label" parent="Mouth"]
+visible = false
+light_mask = 32
+offset_left = 6.0
+offset_top = -8.0
+offset_right = 46.0
+offset_bottom = 15.0
+scale = Vector2(0.01, 0.01)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "zzZ"
 
 [node name="Hands" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -444,30 +603,11 @@ position = Vector2(4, 4)
 sprite_frames = ExtResource("3_wxt5j")
 animation = &"Idle"
 
-[node name="AnimationPlayerLabel" type="AnimationPlayer" parent="."]
+[node name="FireEmiter" type="PointLight2D" parent="Hands"]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_ywx4s")
-}
+enabled = false
+texture = SubResource("GradientTexture2D_ui1ny")
 
-[node name="Mouth" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="AttackText" type="Label" parent="Mouth"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(0.01, 0.01)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Piew"
-
-[node name="SleepText" type="Label" parent="Mouth"]
-visible = false
-offset_left = 6.0
-offset_top = -8.0
-offset_right = 46.0
-offset_bottom = 15.0
-scale = Vector2(0.01, 0.01)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "zzZ"
+[node name="PointLight2D" type="PointLight2D" parent="."]
+range_item_cull_mask = 32
+texture = SubResource("GradientTexture2D_vqv8e")
