@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://kyeaogpfclel" path="res://Map/Map.tscn" id="1_61lmh"]
 [ext_resource type="Script" path="res://Playground.gd" id="1_ffywb"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
-[ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Knight/Knight.tscn" id="4_8c3qm"]
+[ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Floater/Floater.tscn" id="4_8c3qm"]
 [ext_resource type="PackedScene" uid="uid://bwakvti2j26mo" path="res://Map/spawner.tscn" id="5_bynuq"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]

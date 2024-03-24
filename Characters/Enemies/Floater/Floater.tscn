@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b71d0wsey6gub"]
 
-[ext_resource type="Script" path="res://Characters/Enemies/Knight/Knight.gd" id="1_tfgev"]
-[ext_resource type="SpriteFrames" uid="uid://daj0xrvies5v7" path="res://Characters/Enemies/Knight/Frames/Knight.tres" id="2_cqewl"]
-[ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="3_pkah7"]
+[ext_resource type="Script" path="res://Characters/Enemies/Floater/Floater.gd" id="1_0i4bm"]
+[ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_li2od"]
+[ext_resource type="SpriteFrames" uid="uid://daj0xrvies5v7" path="res://Characters/Enemies/Floater/Frames/Floater.tres" id="3_o1ka2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
 size = Vector2(7, 12)
@@ -26,17 +26,17 @@ size = Vector2(12, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i42y"]
 size = Vector2(6, 14)
 
-[node name="Knight" type="CharacterBody2D"]
+[node name="Floater" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_tfgev")
+script = ExtResource("1_0i4bm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_6drgq")
 
-[node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
-sprite_frames = ExtResource("2_cqewl")
+[node name="CharacterAnimator" parent="." instance=ExtResource("2_li2od")]
+sprite_frames = ExtResource("3_o1ka2")
 animation = &"Idle"
 script = null
 
