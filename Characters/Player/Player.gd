@@ -48,6 +48,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	%Body.setInteract(can_interact and not is_dead)
 	if is_dead:
 		return
 	if is_interacting:

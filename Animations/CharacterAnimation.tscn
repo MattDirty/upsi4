@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dk8lf3fekj5g7"]
+[gd_scene load_steps=41 format=3 uid="uid://dk8lf3fekj5g7"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjdw85cnwdy1q" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Shader" path="res://Shaders/Etheral.gdshader" id="1_yvud6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cra2ymc3ikawj" path="res://Assets/Sounds/SFX/pioupiou.mp3" id="4_l11hn"]
 [ext_resource type="AudioStream" uid="uid://hxu5yxm24f6b" path="res://Assets/Sounds/SFX/ouch.mp3" id="5_bdj8m"]
 [ext_resource type="Texture2D" uid="uid://b5lieg42fbg2y" path="res://Assets/Sprites/Hearts/PNG/animated/border/heart_animated_1.png" id="8_t6yru"]
+[ext_resource type="Texture2D" uid="uid://bkejwnpa8l1y3" path="res://Assets/Keyboard/Keyboard.png" id="9_rjrxv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fylu3"]
 shader = ExtResource("1_yvud6")
@@ -1110,6 +1111,28 @@ _data = {
 "default": SubResource("Animation_qbhmv")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa2hq"]
+atlas = ExtResource("9_rjrxv")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh4rv"]
+atlas = ExtResource("9_rjrxv")
+region = Rect2(96, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cd4s3"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_pa2hq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_uh4rv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Body" type="AnimatedSprite2D"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_fylu3")
@@ -1233,4 +1256,10 @@ frame = 4
 libraries = {
 "": SubResource("AnimationLibrary_e5liv")
 }
+autoplay = "default"
+
+[node name="KeyPress" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-15, -21)
+sprite_frames = SubResource("SpriteFrames_cd4s3")
 autoplay = "default"
