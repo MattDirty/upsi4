@@ -33,18 +33,8 @@ func _on_area_2d_body_entered(body):
 	queue_free()
 
 
-func _on_area_2d_area_entered(area):
-	if already_spawn:
-		return
-	var zone = area.get_parent()
-	if zone is SafeZone:
-		zone.lose.emit()
-		already_spawn = true
-	pass # Replace with function body.
-
-
 func _on_area_2d_area_exited(area):
-	if area.name != "SafeArea":
+	if area.name != "SafeArea" or $Area2D.has_overlapping_areas():
 		return
 	velocity = velocity / 5
 	area.get_parent().bulletExits()

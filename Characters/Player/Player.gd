@@ -45,7 +45,6 @@ func _ready():
 	%Body.fire.connect(attack)
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_dead:
@@ -95,8 +94,7 @@ func toggleInteract(target):
 func addSafeArea(safe_area):
 	safe_areas.append(safe_area)
 
-	
-	
+
 func removeSafeArea(safe_area):
 	safe_areas.remove_at(safe_areas.find(safe_area))
 
@@ -108,3 +106,5 @@ func attack(position: Vector2):
 	bullet.layer = 2
 	bullet.direction = position.direction_to(target)
 	get_node("/root").add_child(bullet)
+	for area in safe_areas:
+		area.lose.emit()
