@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dci24wk81jl04"]
+
+[ext_resource type="Texture2D" uid="uid://b4qbsb5nhg5dy" path="res://Assets/EnergyBall.png" id="1_0dbql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ada"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b67pa"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhtju"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rikas"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvsd7"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn70q"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyqgf"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cun6d"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yjdy"]
+atlas = ExtResource("1_0dbql")
+region = Rect2(1024, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ada")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b67pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhtju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rikas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvsd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn70q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyqgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cun6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yjdy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

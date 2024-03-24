@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://b71d0wsey6gub"]
+
+[ext_resource type="Script" path="res://Characters/Enemies/Knight/Knight.gd" id="1_tfgev"]
+[ext_resource type="Shader" path="res://Characters/Enemies/Knight/Knight.gdshader" id="1_ttxow"]
+[ext_resource type="SpriteFrames" uid="uid://daj0xrvies5v7" path="res://Characters/Enemies/Knight/Frames/Knight.tres" id="2_cqewl"]
+[ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="3_pkah7"]
+
+[sub_resource type="Shader" id="Shader_r6if4"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	COLOR.r = 1.0;}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e40q8"]
+shader = SubResource("Shader_r6if4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
+size = Vector2(4, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2v4b"]
+resource_local_to_scene = true
+shader = ExtResource("1_ttxow")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3i1"]
+size = Vector2(12, 20)
+
+[node name="Knight" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_e40q8")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_tfgev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6drgq")
+
+[node name="CharacterAnimator" parent="." instance=ExtResource("3_pkah7")]
+material = SubResource("ShaderMaterial_x2v4b")
+sprite_frames = ExtResource("2_cqewl")
+animation = &"IdleSouth"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gk3i1")

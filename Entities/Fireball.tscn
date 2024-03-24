@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhhiohg1nnp57"]
+
+[ext_resource type="SpriteFrames" uid="uid://dci24wk81jl04" path="res://Entities/Fireball.tres" id="1_dgvdk"]
+[ext_resource type="Script" path="res://Entities/Fireball.gd" id="2_ydjj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l24dp"]
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_bya4y"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oi30h"]
+gradient = SubResource("Gradient_bya4y")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.770642, 0.197248)
+
+[node name="Fireball" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(0.0507813, 0.0507813)
+sprite_frames = ExtResource("1_dgvdk")
+script = ExtResource("2_ydjj1")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(22.2677, 9.66461)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l24dp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(41.96, 27.1878)
+texture = SubResource("GradientTexture2D_oi30h")
+texture_scale = 0.05
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

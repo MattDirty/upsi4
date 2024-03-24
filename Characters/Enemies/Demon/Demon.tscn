@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://b287pelrtgn2b"]
+
+[ext_resource type="Script" path="res://Characters/Enemies/Demon/Demon.gd" id="1_51sno"]
+[ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_ym6bg"]
+[ext_resource type="SpriteFrames" uid="uid://d0hdgsf8ov405" path="res://Characters/Enemies/Demon/Frames/Demon.tres" id="3_25tqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
+size = Vector2(12, 13)
+
+[sub_resource type="Gradient" id="Gradient_2v51e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.053125, 0.265625, 1)
+colors = PackedColorArray(1, 1, 1, 0.905882, 1, 1, 1, 0.888764, 1, 1, 1, 0.486275, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wjf8"]
+gradient = SubResource("Gradient_2v51e")
+width = 275
+height = 275
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.820513, 0.123932)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3i1"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i42y"]
+size = Vector2(15, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ive3n"]
+radius = 193.729
+
+[node name="Demon" type="CharacterBody2D"]
+scale = Vector2(1.39, 1.39)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_51sno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2.5)
+shape = SubResource("RectangleShape2D_6drgq")
+
+[node name="CharacterAnimator" parent="." instance=ExtResource("2_ym6bg")]
+scale = Vector2(0.0260083, 0.0260083)
+sprite_frames = ExtResource("3_25tqu")
+animation = &"Idle"
+flip_h = true
+script = null
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterAnimator"]
+position = Vector2(211.471, 96.1231)
+scale = Vector2(0.532169, 0.241895)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_1wjf8")
+texture_scale = 2.89
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gk3i1")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_5i42y")
+debug_color = Color(1, 0.611765, 0, 0.419608)
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_ive3n")
+debug_color = Color(1, 0.611765, 0, 0.419608)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
