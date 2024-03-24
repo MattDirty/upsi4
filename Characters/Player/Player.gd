@@ -104,7 +104,6 @@ func removeSafeArea(safe_area):
 
 func attack(position: Vector2):
 	var target = get_global_mouse_position()
-	print(position, target)
 	var bullet = Bullet.instantiate()
 	bullet.position = position
 	bullet.layer = 2

@@ -50,6 +50,24 @@ func loseSize():
 		dead()
 	setScaleFromCurrentSize()
 
+
+func bulletExits():
+	loseSize()
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		$SafeArea/PointLight2D,
+		"color",
+		Color(1,0,0),
+		0.2
+	)
+	tween.tween_property(
+		$SafeArea/PointLight2D,
+		"color",
+		Color(1,1,1),
+		0.2
+	)
+
+
 func dead():
 	queue_free()
 

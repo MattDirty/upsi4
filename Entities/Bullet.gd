@@ -7,7 +7,7 @@ var layer: int
 
 var already_spawn := false
 
-@export var bulletDuration := 4.0
+@export var bulletDuration := 35.0
 
 @onready var lifeTimer := Timer.new()
 
@@ -41,3 +41,10 @@ func _on_area_2d_area_entered(area):
 		zone.lose.emit()
 		already_spawn = true
 	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	if area.name != "SafeArea":
+		return
+	velocity = velocity / 5
+	area.get_parent().bulletExits()
