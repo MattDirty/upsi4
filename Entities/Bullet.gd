@@ -34,7 +34,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_area_exited(area):
-	if area.name != "SafeArea" or $Area2D.has_overlapping_areas():
+	if area.name != "SafeArea" or %Area2D.has_overlapping_areas():
 		return
 	velocity = velocity / 5
 	area.get_parent().bulletExits()
