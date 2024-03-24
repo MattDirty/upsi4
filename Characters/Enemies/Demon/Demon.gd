@@ -10,7 +10,6 @@ var rangeIdle := false
 var target: Player
 var status := "Following"
 
-
 func _ready():
 	super._ready()
 	cooldown.wait_time = 0.8
@@ -19,6 +18,7 @@ func _ready():
 	rangeCooldown.timeout.connect(endRangeCooldown)
 	add_child(cooldown)
 	add_child(rangeCooldown)
+	$EvilLaugh.play(1.1)
 
 func endRangeCooldown():
 	rangeIdle = false
@@ -39,6 +39,7 @@ func follow_player():
 func rangeAttack():
 	if not target or rangeIdle or dead:
 		return
+	$EvilAttack.play(0.84)
 	rangeIdle = true
 	rangeCooldown.start()
 	var fireball = Fireball.instantiate()
@@ -97,8 +98,9 @@ func endCooldown():
 func take_damages(value: int):
 	super.take_damages(value)
 	if dead:
-		$CharacterAnimator.scale = Vector2(0.3, 0.3)
+		$CharacterAnimator.scale = Vector2(0.7, 0.7)
 		$CharacterAnimator.self_modulate = Color("4b004c")
+		$EvilDeath.play(0.86)
 		set_collision_mask_value(2, false)
 		set_collision_layer_value(2, false)
 		$Hitbox.set_collision_mask_value(2, false)

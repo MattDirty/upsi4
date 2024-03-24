@@ -5,6 +5,7 @@ var velocity: Vector2
 var direction: Vector2
 var layer: int
 var dead = false
+var inert := false
 
 var already_spawn := false
 
@@ -34,7 +35,8 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_area_exited(area):
-	if area.name != "SafeArea" or %Area2D.has_overlapping_areas() or dead:
+	if area.name != "SafeArea" or %Area2D.has_overlapping_areas() or dead or inert:
 		return
+	inert = true
 	velocity = velocity / 5
 	area.get_parent().bulletExits()

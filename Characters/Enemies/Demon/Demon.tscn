@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b287pelrtgn2b"]
+[gd_scene load_steps=13 format=3 uid="uid://b287pelrtgn2b"]
 
 [ext_resource type="Script" path="res://Characters/Enemies/Demon/Demon.gd" id="1_51sno"]
 [ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_ym6bg"]
 [ext_resource type="SpriteFrames" uid="uid://d0hdgsf8ov405" path="res://Characters/Enemies/Demon/Frames/Demon.tres" id="3_25tqu"]
+[ext_resource type="AudioStream" uid="uid://bee3y24tma2ii" path="res://Assets/Sounds/SFX/evil_laugh.mp3" id="4_7ilvk"]
+[ext_resource type="AudioStream" uid="uid://ch6cgn4rwyvrf" path="res://Assets/Sounds/SFX/evil_attack.mp3" id="5_plkhd"]
+[ext_resource type="AudioStream" uid="uid://c64xrkyhcav1n" path="res://Assets/Sounds/SFX/evil_death.mp3" id="6_2w7l4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drgq"]
 size = Vector2(12, 13)
@@ -73,6 +76,18 @@ debug_color = Color(1, 0.611765, 0, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_ive3n")
 debug_color = Color(1, 0.611765, 0, 0.419608)
+
+[node name="EvilLaugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ilvk")
+pitch_scale = 0.71
+
+[node name="EvilAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_plkhd")
+pitch_scale = 0.76
+
+[node name="EvilDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2w7l4")
+pitch_scale = 0.69
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
