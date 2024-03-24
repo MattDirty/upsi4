@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Playground.gd" id="1_ffywb"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
 [ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Floater/Floater.tscn" id="4_8c3qm"]
-[ext_resource type="PackedScene" path="res://Map/spawner.tscn" id="5_bynuq"]
+[ext_resource type="PackedScene" uid="uid://bwakvti2j26mo" path="res://Map/spawner.tscn" id="5_bynuq"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
 [ext_resource type="PackedScene" uid="uid://t4vsg4eroc1g" path="res://Menu/clock.tscn" id="6_su8de"]
@@ -28,22 +28,24 @@ autoplay = true
 [node name="SafeZonesSpawner" parent="." instance=ExtResource("5_bynuq")]
 spawn_rate = 0.01
 min_distance = 200.0
+max_distance = 2000.0
+max_units = 20
 container_name = "SafeZones"
 
 [node name="FloatersSpawner" parent="." instance=ExtResource("5_bynuq")]
 character = ExtResource("4_8c3qm")
-spawn_rate = 4.0
+spawn_rate = 3.0
 min_distance = 200.0
 max_distance = 500.0
-max_units = 20
+max_units = 4000000
 container_name = "Floaters"
 
 [node name="DemonsSpawner" parent="." instance=ExtResource("5_bynuq")]
 character = ExtResource("11_a3evy")
-spawn_rate = 20.0
+spawn_rate = 10.0
 min_distance = 500.0
 max_distance = 1000.0
-max_units = 5
+max_units = 40000
 container_name = "Demons"
 
 [node name="InitialSafeZone" parent="." instance=ExtResource("5_mjhiq")]
@@ -54,7 +56,7 @@ metadata/_edit_lock_ = true
 stream = ExtResource("9_l14sh")
 
 [node name="HourTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_f0cw0")]
 visible = false

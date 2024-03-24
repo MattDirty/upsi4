@@ -1,10 +1,10 @@
 [gd_scene load_steps=37 format=3 uid="uid://dk8lf3fekj5g7"]
 
-[ext_resource type="SpriteFrames" uid="uid://dej3wiodw0hme" path="res://Animations/body.tres" id="1_og2mw"]
+[ext_resource type="SpriteFrames" uid="uid://cjdw85cnwdy1q" path="res://Animations/body.tres" id="1_og2mw"]
 [ext_resource type="Shader" path="res://Shaders/Etheral.gdshader" id="1_yvud6"]
 [ext_resource type="Script" path="res://Animations/CharacterAnimation.gd" id="2_ogm2u"]
 [ext_resource type="Script" path="res://Animations/Hands.gd" id="3_nxgfp"]
-[ext_resource type="SpriteFrames" uid="uid://ceohj07uitcok" path="res://Animations/hand.tres" id="3_wxt5j"]
+[ext_resource type="SpriteFrames" uid="uid://qpuo8nf4tr5r" path="res://Animations/hand.tres" id="3_wxt5j"]
 [ext_resource type="AudioStream" uid="uid://cra2ymc3ikawj" path="res://Assets/Sounds/SFX/pioupiou.mp3" id="4_l11hn"]
 [ext_resource type="AudioStream" uid="uid://hxu5yxm24f6b" path="res://Assets/Sounds/SFX/ouch.mp3" id="5_bdj8m"]
 [ext_resource type="Texture2D" uid="uid://b5lieg42fbg2y" path="res://Assets/Sprites/Hearts/PNG/animated/border/heart_animated_1.png" id="8_t6yru"]
@@ -1071,6 +1071,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_6dkab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HeartBeat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_qbhmv"]
 resource_name = "default"
 length = 1.33
@@ -1087,21 +1102,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(12, 1, 12, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6dkab"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%HeartBeat:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e5liv"]
