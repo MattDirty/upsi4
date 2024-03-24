@@ -77,17 +77,20 @@ debug_color = Color(1, 0.611765, 0, 0.419608)
 shape = SubResource("CircleShape2D_ive3n")
 debug_color = Color(1, 0.611765, 0, 0.419608)
 
-[node name="EvilLaugh" type="AudioStreamPlayer" parent="."]
+[node name="EvilLaugh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_7ilvk")
 pitch_scale = 0.71
+max_distance = 1200.0
 
-[node name="EvilAttack" type="AudioStreamPlayer" parent="."]
+[node name="EvilAttack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_plkhd")
 pitch_scale = 0.76
+max_distance = 600.0
 
-[node name="EvilDeath" type="AudioStreamPlayer" parent="."]
+[node name="EvilDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2w7l4")
 pitch_scale = 0.69
+max_distance = 600.0
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
