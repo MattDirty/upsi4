@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
 [ext_resource type="PackedScene" uid="uid://t4vsg4eroc1g" path="res://Menu/clock.tscn" id="6_su8de"]
-
-[ext_resource type="PackedScene" uid="uid://c8f151o6jlqsd" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
+[ext_resource type="PackedScene" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
 [ext_resource type="AudioStream" uid="uid://dn14obickocq8" path="res://Assets/Sounds/SFX/old-church-bell-6298.mp3" id="9_l14sh"]
 [ext_resource type="PackedScene" uid="uid://b287pelrtgn2b" path="res://Characters/Enemies/Demon/Demon.tscn" id="11_a3evy"]
 
@@ -45,8 +44,8 @@ container_name = "Floaters"
 character = ExtResource("11_a3evy")
 spawn_rate = 10.0
 min_distance = 500.0
-max_units = 40000
 max_distance = 700.0
+max_units = 40000
 container_name = "Demons"
 
 [node name="InitialSafeZone" parent="." instance=ExtResource("5_mjhiq")]
