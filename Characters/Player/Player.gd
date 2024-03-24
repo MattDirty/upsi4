@@ -103,12 +103,12 @@ func removeSafeArea(safe_area):
 	safe_areas.remove_at(safe_areas.find(safe_area))
 
 
-func attack(position: Vector2):
+func attack(start_position: Vector2):
 	var target = get_global_mouse_position()
 	var bullet = Bullet.instantiate()
-	bullet.position = position
+	bullet.position = start_position
 	bullet.layer = 2
-	bullet.direction = position.direction_to(target)
+	bullet.direction = start_position.direction_to(target)
 	get_node("/root").add_child(bullet)
 	#for area in safe_areas:
 		#area.lose.emit()
