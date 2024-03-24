@@ -39,5 +39,4 @@ func _on_area_2d_area_exited(area):
 	if area.name != "SafeArea" or %Area2D.has_overlapping_areas() or dead:
 		return
 	velocity = velocity / 5
-	print("dead")
 	area.get_parent().bulletExits()
