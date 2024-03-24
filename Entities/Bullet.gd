@@ -40,3 +40,5 @@ func _on_area_2d_area_exited(area):
 	inert = true
 	velocity = velocity / 5
 	area.get_parent().bulletExits()
+	
+	

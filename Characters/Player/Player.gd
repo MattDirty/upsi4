@@ -17,15 +17,34 @@ var interact_target: Node2D
 var time_since_interact := 0.0
 var safe_areas := []
 var is_dead := false
+var interacted_unicorn: Node2D
+@onready var unicornTimer := Timer.new()
 
 func _input(event):
 	if event.is_action_pressed("take_damage"): #debug code?
 		takeDamage(1)
+		
+
+func unicornInteracted():
+	interacted_unicorn.reparent(self)
+	if interacted_unicorn == null:
+		return
+	unicornTimer.wait_time = 5.0
+	unicornTimer.autostart = true
+	unicornTimer.one_shot = true
+	unicornTimer.timeout.connect(interacted_unicorn.queue_free)
+	interacted_unicorn.add_child(unicornTimer)
+	
+
 
 func get_input():
-	if Input.is_action_pressed("interact") and can_interact:
-		action = "Interact"
-		return
+	if Input.is_action_pressed("interact"):
+		if interacted_unicorn != null:
+			unicornInteracted()
+			return
+		if can_interact:
+			action = "Interact"
+			return
 	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
@@ -51,7 +70,7 @@ func _process(delta):
 	%Body.setInteract(can_interact and not is_dead)
 	if is_dead:
 		return
-	if is_interacting:
+	if is_interacting and interact_target:
 		if time_since_interact >= interact_interval:
 			interact_target.playerInteract()
 			time_since_interact = 0
@@ -93,7 +112,11 @@ func toggleInteract(target):
 		interact_target = target
 	else:
 		interact_target = null
-		
+
+
+func toggleInteractUnicorn(target):
+	interacted_unicorn = target
+
 		
 func addSafeArea(safe_area):
 	safe_areas.append(safe_area)
