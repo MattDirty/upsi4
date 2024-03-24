@@ -14,6 +14,7 @@ var already_spawn := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = direction.normalized() * speed
+	rotation = direction.angle()
 	lifeTimer.wait_time = bulletDuration
 	lifeTimer.autostart = true
 	lifeTimer.one_shot = true
@@ -29,6 +30,6 @@ func _physics_process(delta_time):
 
 
 func _on_area_2d_body_entered(body):
-	body.take_damages(1)
+	body.takeDamage(1)
 	queue_free()
 

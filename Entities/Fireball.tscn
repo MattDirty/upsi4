@@ -17,8 +17,11 @@ fill_to = Vector2(0.770642, 0.197248)
 
 [node name="Fireball" type="AnimatedSprite2D"]
 texture_filter = 1
-scale = Vector2(0.0507813, 0.0507813)
+scale = Vector2(0.126, 0.126)
 sprite_frames = ExtResource("1_dgvdk")
+autoplay = "default"
+frame = 1
+frame_progress = 0.236082
 script = ExtResource("2_ydjj1")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -31,7 +34,7 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_l24dp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(41.96, 27.1878)
+scale = Vector2(66.2936, 42.9546)
 texture = SubResource("GradientTexture2D_oi30h")
 texture_scale = 0.05
 

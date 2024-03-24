@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=123 format=3 uid="uid://dej3wiodw0hme"]
+[gd_resource type="SpriteFrames" load_steps=123 format=3 uid="uid://cjdw85cnwdy1q"]
 
 [ext_resource type="Texture2D" uid="uid://bjj12smggjdst" path="res://Animations/Animations/body_damage.png" id="1_jvrrq"]
 [ext_resource type="Texture2D" uid="uid://c18nsly10hjn0" path="res://Animations/Animations/death_body.png" id="2_oknsj"]

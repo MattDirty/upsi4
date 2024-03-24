@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Playground.gd" id="1_ffywb"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
 [ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Floater/Floater.tscn" id="4_8c3qm"]
-[ext_resource type="PackedScene" uid="uid://bwakvti2j26mo" path="res://Map/spawner.tscn" id="5_bynuq"]
+[ext_resource type="PackedScene" path="res://Map/spawner.tscn" id="5_bynuq"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
 [ext_resource type="PackedScene" uid="uid://t4vsg4eroc1g" path="res://Menu/clock.tscn" id="6_su8de"]
@@ -38,6 +38,14 @@ max_distance = 500.0
 max_units = 20
 container_name = "Floaters"
 
+[node name="DemonsSpawner" parent="." instance=ExtResource("5_bynuq")]
+character = ExtResource("11_a3evy")
+spawn_rate = 20.0
+min_distance = 500.0
+max_distance = 1000.0
+max_units = 5
+container_name = "Demons"
+
 [node name="InitialSafeZone" parent="." instance=ExtResource("5_mjhiq")]
 initial_size = 0.5
 metadata/_edit_lock_ = true
@@ -52,8 +60,5 @@ wait_time = 5.0
 visible = false
 
 [node name="Clock" parent="." instance=ExtResource("6_su8de")]
-
-[node name="Demon" parent="." instance=ExtResource("11_a3evy")]
-position = Vector2(167, 92)
 
 [connection signal="timeout" from="HourTimer" to="." method="_on_hour_timer_timeout"]

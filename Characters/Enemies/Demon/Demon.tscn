@@ -27,7 +27,7 @@ size = Vector2(16, 16)
 size = Vector2(15, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ive3n"]
-radius = 193.729
+radius = 107.204
 
 [node name="Demon" type="CharacterBody2D"]
 scale = Vector2(1.39, 1.39)
@@ -42,7 +42,7 @@ shape = SubResource("RectangleShape2D_6drgq")
 [node name="CharacterAnimator" parent="." instance=ExtResource("2_ym6bg")]
 scale = Vector2(0.0260083, 0.0260083)
 sprite_frames = ExtResource("3_25tqu")
-animation = &"Idle"
+animation = &"Death"
 flip_h = true
 script = null
 
@@ -71,7 +71,6 @@ debug_color = Color(1, 0.611765, 0, 0.419608)
 [node name="AttackRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_ive3n")
 debug_color = Color(1, 0.611765, 0, 0.419608)
 

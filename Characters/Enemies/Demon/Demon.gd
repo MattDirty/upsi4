@@ -1,9 +1,9 @@
 extends Enemy
 
+var Fireball = load("res://Entities/Fireball.tscn")
 var delta_since_last_move: float = 0
 @onready var cooldown := Timer.new()
 @onready var rangeCooldown := Timer.new()
-
 var idle := false
 var rangeIdle := false
 @onready var player = get_tree().root.get_node("Playground/Player")
@@ -12,10 +12,11 @@ var status := "Following"
 
 
 func _ready():
+	print("hello I'm a demon")
 	super._ready()
 	cooldown.wait_time = 0.8
 	cooldown.timeout.connect(endCooldown)
-	rangeCooldown.wait_time = 2.0
+	rangeCooldown.wait_time = 4.0
 	rangeCooldown.timeout.connect(endRangeCooldown)
 	add_child(cooldown)
 	add_child(rangeCooldown)
@@ -37,10 +38,15 @@ func follow_player():
 
 
 func rangeAttack():
-	if not target or rangeIdle:
+	if not target or rangeIdle or dead:
 		return
 	rangeIdle = true
 	rangeCooldown.start()
+	var fireball = Fireball.instantiate()
+	fireball.position = position
+	fireball.layer = 1
+	fireball.direction = position.direction_to(target.position)
+	get_node("/root").add_child(fireball)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -92,6 +98,8 @@ func endCooldown():
 func take_damages(value: int):
 	super.take_damages(value)
 	if dead:
+		$CharacterAnimator.scale = Vector2(0.3, 0.3)
+		$CharacterAnimator.self_modulate = Color("4b004c")
 		set_collision_mask_value(2, false)
 		set_collision_layer_value(2, false)
 		$Hitbox.set_collision_mask_value(2, false)

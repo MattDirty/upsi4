@@ -8,7 +8,7 @@ extends Node2D
 @export var max_units: int
 @export var container_name: String
 
-var time_since_last_spawn: float = 0
+var time_since_last_spawn: float = 0.0
 var total_spawned: int
 var container: Node
 
@@ -25,7 +25,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if time_since_last_spawn >= spawn_rate:
-		for i in time_since_last_spawn / spawn_rate:
+		for i in time_since_last_spawn / spawn_rate - 1:
 			spawnCharacter()
 			total_spawned += 1
 			if max_units > 0 and total_spawned >= max_units:
