@@ -71,6 +71,7 @@ func _process(delta):
 func takeDamage(value: int):
 	health -= value
 	setBeatRate()
+	%Body.setLife(health, max_health)
 	%Body.setAnimation("Damage", direction)
 	if health <= 0:
 		death()

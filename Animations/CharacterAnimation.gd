@@ -69,3 +69,8 @@ func deathAnimation():
 	%Hands.visible = false
 	get_tree().change_scene_to_file("res://Menu/GameOverScreen.tscn")
 	pass
+
+func setLife(health: float, max_health: float):
+	var value: int = (max_health - health) / 4
+	%Heart.frame = value
+	%Heart/HeartBeatAnim.speed_scale = (3 - (float(health) / float(max_health)) * 2)
