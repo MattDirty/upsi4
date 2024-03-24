@@ -1260,6 +1260,6 @@ autoplay = "default"
 
 [node name="KeyPress" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-15, -21)
+position = Vector2(1.5, 28)
 sprite_frames = SubResource("SpriteFrames_cd4s3")
 autoplay = "default"
