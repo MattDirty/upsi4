@@ -74,3 +74,6 @@ func setLife(health: float, max_health: float):
 	var value: int = (max_health - health) / 4
 	%Heart.frame = value
 	%Heart/HeartBeatAnim.speed_scale = (3 - (float(health) / float(max_health)) * 2)
+
+func setInteract(value: bool):
+	%KeyPress.visible = value
