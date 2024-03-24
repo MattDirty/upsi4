@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 var velocity: Vector2
 var direction: Vector2
 var layer: int
+var dead = false
 
 var already_spawn := false
 
@@ -29,12 +30,14 @@ func _physics_process(delta_time):
 
 
 func _on_area_2d_body_entered(body):
+	dead = true
 	body.take_damages(10)
 	queue_free()
 
 
 func _on_area_2d_area_exited(area):
-	if area.name != "SafeArea" or %Area2D.has_overlapping_areas():
+	if area.name != "SafeArea" or %Area2D.has_overlapping_areas() or dead:
 		return
 	velocity = velocity / 5
+	print("dead")
 	area.get_parent().bulletExits()

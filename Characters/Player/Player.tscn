@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqwomwcwnjyrr"]
+[gd_scene load_steps=5 format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" uid="uid://dk8lf3fekj5g7" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
+[ext_resource type="AudioStream" uid="uid://dqtehhb1nufeh" path="res://Assets/Sounds/SFX/heartbeat-60bpm.wav" id="3_c0lpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -20,3 +21,8 @@ zoom = Vector2(2, 2)
 
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
+
+[node name="Heart" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_c0lpa")
+autoplay = true

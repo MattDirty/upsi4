@@ -43,6 +43,7 @@ func _ready():
 	%Body.startInteract.connect(func(): self.is_interacting = true)
 	%Body.stopInteract.connect(func(): self.is_interacting = false)
 	%Body.fire.connect(attack)
+	setBeatRate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,7 +70,7 @@ func _process(delta):
 
 func takeDamage(value: int):
 	health -= value
-	print(health)
+	setBeatRate()
 	%Body.setAnimation("Damage", direction)
 	if health <= 0:
 		death()
@@ -77,6 +78,7 @@ func takeDamage(value: int):
 func death():
 	is_dead = true
 	%Body.setAnimation("Death", direction)
+	(%Heart as AudioStreamPlayer).stop()
 
 
 func setDirectionInRelationToMouse():
@@ -106,5 +108,10 @@ func attack(position: Vector2):
 	bullet.layer = 2
 	bullet.direction = position.direction_to(target)
 	get_node("/root").add_child(bullet)
-	for area in safe_areas:
-		area.lose.emit()
+	#for area in safe_areas:
+		#area.lose.emit()
+
+func setBeatRate():
+	var heart = %Heart as AudioStreamPlayer
+	heart.volume_db = 6 - (health)
+	heart.set_pitch_scale(3 - (float(health) / float(max_health)) * 2)
