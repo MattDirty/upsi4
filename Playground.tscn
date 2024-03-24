@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba45d85vm2ptv"]
+[gd_scene load_steps=10 format=3 uid="uid://ba45d85vm2ptv"]
 
 [ext_resource type="PackedScene" uid="uid://kyeaogpfclel" path="res://Map/Map.tscn" id="1_61lmh"]
 [ext_resource type="Script" path="res://Playground.gd" id="1_ffywb"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
-[ext_resource type="Script" path="res://Characters/Enemies/Spawner.gd" id="3_p5by6"]
-[ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Knight/Knight.tscn" id="4_8c3qm"]
+[ext_resource type="PackedScene" uid="uid://bwakvti2j26mo" path="res://Map/spawner.tscn" id="5_bynuq"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
 [ext_resource type="PackedScene" uid="uid://t4vsg4eroc1g" path="res://Menu/clock.tscn" id="6_su8de"]
@@ -24,21 +23,11 @@ speed = 200
 stream = ExtResource("5_voe6j")
 autoplay = true
 
-[node name="Spawner" type="Node2D" parent="."]
-script = ExtResource("3_p5by6")
-character = ExtResource("4_8c3qm")
-spawn_rate = 0.1
-min_distance = 100.0
-max_distance = 400.0
-max_units = 10
-container_name = "Knights"
+[node name="SafeZonesSpawner" parent="." instance=ExtResource("5_bynuq")]
+spawn_rate = 0.01
 
-[node name="SafeZone" parent="." instance=ExtResource("5_mjhiq")]
-metadata/_edit_lock_ = true
-
-[node name="SafeZone2" parent="." instance=ExtResource("5_mjhiq")]
-position = Vector2(471, 0)
-initial_size = 0.1
+[node name="InitialSafeZone" parent="." instance=ExtResource("5_mjhiq")]
+initial_size = 0.5
 metadata/_edit_lock_ = true
 
 [node name="ClockBell" type="AudioStreamPlayer2D" parent="."]

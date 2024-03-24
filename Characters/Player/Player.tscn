@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqwomwcwnjyrr"]
+[gd_scene load_steps=4 format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" uid="uid://dk8lf3fekj5g7" path="res://Animations/CharacterAnimation.tscn" id="2_yqqsv"]
-[ext_resource type="Script" path="res://Characters/Player/Attack.gd" id="4_nkwap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -21,15 +20,3 @@ zoom = Vector2(2, 2)
 
 [node name="Body" parent="." instance=ExtResource("2_yqqsv")]
 unique_name_in_owner = true
-
-[node name="Attack" type="Node2D" parent="."]
-script = ExtResource("4_nkwap")
-
-[node name="Area2D" type="Area2D" parent="Attack"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack/Area2D"]
-polygon = PackedVector2Array(0, -8, 24, -21, 24, 22, 0, 8)
-
-[connection signal="area_entered" from="Attack/Area2D" to="Attack" method="_on_area_2d_area_entered"]

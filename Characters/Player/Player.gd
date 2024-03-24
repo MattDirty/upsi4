@@ -3,7 +3,6 @@ class_name Player
 
 var Bullet = load("res://Entities/Bullet.tscn")
 
-@onready var Attack = $Attack
 @export var speed = 400
 @export var max_health := 20
 @onready var health := max_health
@@ -20,7 +19,7 @@ var safe_areas := []
 var is_dead := false
 
 func _input(event):
-	if event.is_action_pressed("take_damage"):
+	if event.is_action_pressed("take_damage"): #debug code?
 		takeDamage(1)
 
 func get_input():
@@ -44,7 +43,7 @@ func _ready():
 	%Body.startInteract.connect(func(): self.is_interacting = true)
 	%Body.stopInteract.connect(func(): self.is_interacting = false)
 	%Body.fire.connect(attack)
-	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,12 +94,12 @@ func toggleInteract(target):
 		
 func addSafeArea(safe_area):
 	safe_areas.append(safe_area)
-	print_debug(safe_areas)
+
 	
 	
 func removeSafeArea(safe_area):
 	safe_areas.remove_at(safe_areas.find(safe_area))
-	print_debug(safe_areas)
+
 
 func attack(position: Vector2):
 	var target = get_global_mouse_position()
