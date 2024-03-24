@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://Playground.gd" id="1_ffywb"]
 [ext_resource type="PackedScene" uid="uid://dqwomwcwnjyrr" path="res://Characters/Player/Player.tscn" id="2_xgsak"]
 [ext_resource type="PackedScene" uid="uid://b71d0wsey6gub" path="res://Characters/Enemies/Floater/Floater.tscn" id="4_8c3qm"]
-[ext_resource type="PackedScene" path="res://Map/spawner.tscn" id="5_bynuq"]
+[ext_resource type="PackedScene" uid="uid://bwakvti2j26mo" path="res://Map/spawner.tscn" id="5_bynuq"]
 [ext_resource type="PackedScene" uid="uid://be5af5p5i8d1q" path="res://Map/Objects/SafeZone/SafeZone.tscn" id="5_mjhiq"]
 [ext_resource type="AudioStream" uid="uid://c3yebkf3cohgv" path="res://Assets/Sounds/HauntedLullabiesofJapan_EdoLullaby3.mp3" id="5_voe6j"]
 [ext_resource type="PackedScene" uid="uid://t4vsg4eroc1g" path="res://Menu/clock.tscn" id="6_su8de"]
-[ext_resource type="PackedScene" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
+[ext_resource type="PackedScene" uid="uid://c8f151o6jlqsd" path="res://Menu/PauseMenu.tscn" id="8_f0cw0"]
 [ext_resource type="AudioStream" uid="uid://dn14obickocq8" path="res://Assets/Sounds/SFX/old-church-bell-6298.mp3" id="9_l14sh"]
 [ext_resource type="PackedScene" uid="uid://b287pelrtgn2b" path="res://Characters/Enemies/Demon/Demon.tscn" id="11_a3evy"]
 
@@ -54,7 +54,7 @@ metadata/_edit_lock_ = true
 stream = ExtResource("9_l14sh")
 
 [node name="HourTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 30.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_f0cw0")]
 visible = false

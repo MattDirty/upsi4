@@ -12,7 +12,6 @@ var status := "Following"
 
 
 func _ready():
-	print("hello I'm a demon")
 	super._ready()
 	cooldown.wait_time = 0.8
 	cooldown.timeout.connect(endCooldown)

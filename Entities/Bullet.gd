@@ -23,10 +23,8 @@ func _ready():
 	%Area2D.set_collision_mask_value(layer, true)
 
 
-
 func _physics_process(delta_time):
 	position += velocity * delta_time
-
 
 
 func _on_area_2d_body_entered(body):
@@ -39,5 +37,4 @@ func _on_area_2d_area_exited(area):
 	if area.name != "SafeArea" or %Area2D.has_overlapping_areas() or dead:
 		return
 	velocity = velocity / 5
-	print("dead")
 	area.get_parent().bulletExits()
