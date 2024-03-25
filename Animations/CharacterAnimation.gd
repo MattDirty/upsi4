@@ -25,7 +25,7 @@ func setAnimation(action, direction):
 	if action + direction == self.action and action != "Damage":
 		return
 
-	if "Damage" in self.action and action != "Damage" and action != "Death" and action != "Interact" and self.is_playing():
+	if "Damage" in self.action and action != "Damage" and action != "Death" and self.is_playing():
 		return
 
 	if %AnimationPlayer.has_animation(action):
