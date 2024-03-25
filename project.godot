@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tammy's night"
-run/main_scene="res://Menu/StartMenu.tscn"
+run/main_scene="res://Menu/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
