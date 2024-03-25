@@ -1,5 +1,6 @@
 extends Enemy
 
+
 var Fireball = load("res://Entities/Fireball.tscn")
 var delta_since_last_move: float = 0
 @onready var cooldown := Timer.new()
@@ -9,6 +10,7 @@ var rangeIdle := false
 @onready var player = get_tree().root.get_node("Playground/Player")
 var target: Player
 var status := "Following"
+
 
 func _ready():
 	super._ready()
@@ -20,9 +22,11 @@ func _ready():
 	add_child(rangeCooldown)
 	$EvilLaugh.play(1.1)
 
+
 func endRangeCooldown():
 	rangeIdle = false
 	rangeAttack()
+
 
 func follow_player():
 	if (player):
@@ -79,10 +83,12 @@ func _on_hurtbox_body_entered(body):
 		target = body
 		tryToAttack()
 
+
 func _on_hurtbox_body_exited(body):
 	if body is Player:
 		target = null
 		
+
 
 func tryToAttack():
 	if not target or idle:
@@ -91,13 +97,16 @@ func tryToAttack():
 	idle = true
 	cooldown.start()
 
+
 func endCooldown():
 	idle = false
 	tryToAttack()
 
+
 func take_damages(value: int):
 	super.take_damages(value)
 	if dead:
+		$CharacterAnimator/PointLight2D.visible = false
 		$CharacterAnimator.scale = Vector2(0.7, 0.7)
 		$CharacterAnimator.self_modulate = Color("4b004c")
 		$EvilDeath.play(0.86)

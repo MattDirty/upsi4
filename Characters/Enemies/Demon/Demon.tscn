@@ -45,7 +45,8 @@ shape = SubResource("RectangleShape2D_6drgq")
 [node name="CharacterAnimator" parent="." instance=ExtResource("2_ym6bg")]
 scale = Vector2(0.0260083, 0.0260083)
 sprite_frames = ExtResource("3_25tqu")
-animation = &"Death"
+animation = &"Idle"
+frame_progress = 0.662099
 flip_h = true
 script = null
 

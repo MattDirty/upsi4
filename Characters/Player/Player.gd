@@ -113,6 +113,7 @@ func attack(start_position: Vector2):
 	#for area in safe_areas:
 		#area.lose.emit()
 
+
 func setBeatRate():
 	var heart = %Heart as AudioStreamPlayer
 	heart.volume_db = 6 - (health)

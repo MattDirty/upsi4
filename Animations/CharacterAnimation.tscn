@@ -1244,7 +1244,7 @@ unique_name_in_owner = true
 light_mask = 33
 visibility_layer = 33
 z_index = 1
-position = Vector2(0, 4)
+position = Vector2(0.5, 4)
 scale = Vector2(0.276471, 0.276471)
 sprite_frames = SubResource("SpriteFrames_fem4d")
 
@@ -1258,6 +1258,6 @@ autoplay = "default"
 unique_name_in_owner = true
 light_mask = 33
 visibility_layer = 33
-position = Vector2(-15, -21)
+position = Vector2(1.5, 28)
 sprite_frames = SubResource("SpriteFrames_cd4s3")
 autoplay = "default"
